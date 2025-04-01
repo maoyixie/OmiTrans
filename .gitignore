@@ -3,3 +3,6 @@
 .DS_Store
 checkpoints/
 __pycache__
+anno*
+data
+data_*
