@@ -29,7 +29,8 @@ if __name__ == '__main__':
     param.A_dim = full_dataloader.get_A_dim()
     param.B_dim = full_dataloader.get_B_dim()
     print('The dimension of omics type A is %d' % param.A_dim)
-    print('The dimension of omics type B is %d' % param.B_dim)
+    # print('The dimension of omics type B is %d' % param.B_dim)
+    print('The dimension of omics type B is %s' % param.B_dim)
     if param.zo_norm:
         param.target_min = full_dataloader.get_values_min()
         param.target_max = full_dataloader.get_values_max()

@@ -35,9 +35,9 @@ class BasicParams:
                             help='path to input data')
         parser.add_argument('--dataset_mode', type=str, default='single_file',
                             help='choose the dataset mode, options: [separate_files | single_file]')
-        parser.add_argument('--batch_size', type=int, default=4,
+        parser.add_argument('--batch_size', type=int, default=256,
                             help='input data batch size')
-        parser.add_argument('--num_threads', default=6, type=int,
+        parser.add_argument('--num_threads', default=16, type=int,
                             help='number of threads for loading data')
         parser.add_argument('--set_pin_memory', action='store_true',
                             help='set pin_memory in the dataloader to increase data loading performance')

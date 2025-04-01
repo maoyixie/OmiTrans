@@ -1,0 +1,714 @@
+nohup: ignoring input
+
+Welcome to OmiTrans
+by Xiaoyu Zhang x.zhang18@imperial.ac.uk
+
+-----------------------Running Parameters-----------------------
+          GAN_mode: vanilla        
+        batch_size: 256            
+             beta1: 0.5            
+   checkpoints_dir: ./checkpoints  
+    continue_train: False          
+       conv_k_size: 9              
+         data_root: ./data         
+      dataset_mode: single_file    
+   decay_step_size: 50             
+            detail: False          
+         detect_na: False          
+     deterministic: False          
+    dis_filter_num: 128            	[default: 64]
+         dist_loss: L1             
+         dropout_p: 0              
+       epoch_count: 1              
+         epoch_num: 100            
+   epoch_num_decay: 0              
+     epoch_to_load: latest         
+   experiment_name: exp_large_batch	[default: test]
+experiment_to_load: test           
+       file_format: tsv            
+    gen_filter_num: 128            	[default: 64]
+           gpu_ids: 0              
+         init_gain: 0.02           
+         init_type: normal         
+    input_chan_num: 1              
+            isTest: True           	[default: None]
+           isTrain: True           	[default: None]
+       lambda_dist: 100.0          
+        latent_dim: 256            
+       layer_num_D: 3              
+       leaky_slope: 0.2            
+              lr_D: 0.0002         
+              lr_G: 0.0002         
+         lr_policy: linear         
+             model: c_gan          
+              netD: fcd_sep        
+              netG: fcg_sep        
+         norm_type: batch          
+       num_threads: 16             
+   output_chan_num: 1              
+        print_freq: 10             	[default: 1]
+   save_epoch_freq: 5              	[default: -1]
+         save_fake: False          
+        save_model: True           	[default: False]
+              seed: 42             
+    set_pin_memory: True           	[default: False]
+          stratify: False          
+        test_ratio: 0.2            
+       train_ratio: 0.8            
+ use_feature_lists: False          
+   use_sample_list: False          
+           zo_norm: False          
+----------------------------------------------------------------
+
+Loading data from ./data/A.tsv
+Loading data from ./data/B.tsv
+Number of probes in B.tsv: 27578
+Number of probes in anno: 27578
+Number of matching probes: 27578
+Separating B.tsv according to the targeting chromosome...
+Dataset [SingleFileDataset] was created
+The number of training omics data points is 107
+The dimension of omics type A is 60660
+The dimension of omics type B is [2902, 1709, 1524, 1032, 1158, 1496, 1259, 939, 1076, 1048, 1732, 1529, 493, 834, 830, 1193, 1587, 396, 1905, 885, 316, 642, 1085]
+Initialize network with normal
+Initialize network with normal
+Model [CGanModel] was created
+
+----------------------Networks Information----------------------
+[Network G] Total number of parameters : 140.799 M
+[Network D] Total number of parameters : 8.243 M
+----------------------------------------------------------------
+
+/root/anaconda3/envs/omitrans/lib/python3.8/site-packages/torch/cuda/__init__.py:104: UserWarning: 
+NVIDIA RTX A6000 with CUDA capability sm_86 is not compatible with the current PyTorch installation.
+The current PyTorch install supports CUDA capabilities sm_37 sm_50 sm_60 sm_61 sm_70 sm_75 compute_37.
+If you want to use the NVIDIA RTX A6000 GPU with PyTorch, please check the instructions at https://pytorch.org/get-started/locally/
+
+  warnings.warn(incompatible_device_warn.format(device_name, capability, " ".join(arch_list), device_name))
+/root/anaconda3/envs/omitrans/lib/python3.8/site-packages/torch/cuda/__init__.py:104: UserWarning: 
+NVIDIA RTX A5000 with CUDA capability sm_86 is not compatible with the current PyTorch installation.
+The current PyTorch install supports CUDA capabilities sm_37 sm_50 sm_60 sm_61 sm_70 sm_75 compute_37.
+If you want to use the NVIDIA RTX A5000 GPU with PyTorch, please check the instructions at https://pytorch.org/get-started/locally/
+
+  warnings.warn(incompatible_device_warn.format(device_name, capability, " ".join(arch_list), device_name))
+[TRAIN] [Epoch:   1   Iter:  107   Load_t: 0.011   Comp_t: 0.818]   D_GAN: 0.8070   G_GAN: 0.8045   G_dist: 3.5981   MSE: 26.8877   RMSE: 5.1853   MAE: 3.5316   MEDAE: 1.7296   R2: -0.7434   
+[TRAIN] [Epoch:    1]      D_GAN: 0.807036      G_GAN: 0.804490      G_dist: 3.598149      MSE: 27.060555      RMSE: 5.200203      MAE: 3.598148      MEDAE: 1.923951      R2: -0.796824      
+Training time used: 88.755s
+[TEST] [Epoch:   1   Iter:   27]   MSE: 27.2099   RMSE: 5.2163   MAE: 3.5087   MEDAE: 1.6310   R2: -0.6788   
+[TEST] [Epoch:    1]      MSE: 26.465464      RMSE: 5.143390      MAE: 3.522421      MEDAE: 1.821205      R2: -0.730630      
+Testing time used: 1.145s
+[TRAIN] [Epoch:   2   Iter:  107   Load_t: 0.011   Comp_t: 0.003]   D_GAN: 0.8052   G_GAN: 0.8005   G_dist: 3.4903   MSE: 26.0692   RMSE: 5.1058   MAE: 3.4238   MEDAE: 1.5699   R2: -0.6679   
+[TRAIN] [Epoch:    2]      D_GAN: 0.805232      G_GAN: 0.800499      G_dist: 3.490292      MSE: 26.024469      RMSE: 5.099638      MAE: 3.490291      MEDAE: 1.791497      R2: -0.727974      
+Training time used: 1.464s
+[TEST] [Epoch:   2   Iter:   27]   MSE: 25.7681   RMSE: 5.0762   MAE: 3.3528   MEDAE: 1.4380   R2: -0.5898   
+[TEST] [Epoch:    2]      MSE: 25.017384      RMSE: 5.000651      MAE: 3.364959      MEDAE: 1.634954      R2: -0.635882      
+Testing time used: 1.214s
+[TRAIN] [Epoch:   3   Iter:  107   Load_t: 0.013   Comp_t: 0.003]   D_GAN: 0.8010   G_GAN: 0.7966   G_dist: 3.3329   MSE: 26.2967   RMSE: 5.1280   MAE: 3.3947   MEDAE: 1.4625   R2: -0.5962   
+[TRAIN] [Epoch:    3]      D_GAN: 0.801036      G_GAN: 0.796625      G_dist: 3.332883      MSE: 24.589111      RMSE: 4.956944      MAE: 3.332883      MEDAE: 1.604536      R2: -0.632577      
+Training time used: 1.682s
+[TEST] [Epoch:   3   Iter:   27]   MSE: 24.4380   RMSE: 4.9435   MAE: 3.2179   MEDAE: 1.2903   R2: -0.5078   
+[TEST] [Epoch:    3]      MSE: 23.680262      RMSE: 4.865133      MAE: 3.227459      MEDAE: 1.475412      R2: -0.548394      
+Testing time used: 1.418s
+[TRAIN] [Epoch:   4   Iter:  107   Load_t: 0.011   Comp_t: 0.003]   D_GAN: 0.7967   G_GAN: 0.7924   G_dist: 3.1956   MSE: 25.7405   RMSE: 5.0735   MAE: 3.4906   MEDAE: 1.9737   R2: -0.6559   
+[TRAIN] [Epoch:    4]      D_GAN: 0.796695      G_GAN: 0.792442      G_dist: 3.195631      MSE: 23.263950      RMSE: 4.821465      MAE: 3.195630      MEDAE: 1.447612      R2: -0.544516      
+Training time used: 1.513s
+[TEST] [Epoch:   4   Iter:   27]   MSE: 23.0602   RMSE: 4.8021   MAE: 3.0789   MEDAE: 1.1709   R2: -0.4228   
+[TEST] [Epoch:    4]      MSE: 22.310278      RMSE: 4.722261      MAE: 3.087526      MEDAE: 1.337251      R2: -0.458763      
+Testing time used: 1.222s
+[TRAIN] [Epoch:   5   Iter:  107   Load_t: 0.011   Comp_t: 0.003]   D_GAN: 0.7923   G_GAN: 0.7894   G_dist: 3.0563   MSE: 20.8158   RMSE: 4.5624   MAE: 3.0174   MEDAE: 1.3681   R2: -0.4654   
+Saving the model at the end of epoch 5
+[TRAIN] [Epoch:    5]      D_GAN: 0.792307      G_GAN: 0.789388      G_dist: 3.056345      MSE: 21.908810      RMSE: 4.678875      MAE: 3.056345      MEDAE: 1.315567      R2: -0.454471      
+Training time used: 3.424s
+[TEST] [Epoch:   5   Iter:   27]   MSE: 21.7197   RMSE: 4.6604   MAE: 2.9520   MEDAE: 1.0930   R2: -0.3401   
+[TEST] [Epoch:    5]      MSE: 20.962252      RMSE: 4.577322      MAE: 2.955646      MEDAE: 1.232090      R2: -0.370567      
+Testing time used: 1.332s
+[TRAIN] [Epoch:   6   Iter:  107   Load_t: 0.012   Comp_t: 0.003]   D_GAN: 0.7893   G_GAN: 0.7869   G_dist: 2.9249   MSE: 19.6272   RMSE: 4.4303   MAE: 2.8603   MEDAE: 1.1936   R2: -0.3509   
+[TRAIN] [Epoch:    6]      D_GAN: 0.789305      G_GAN: 0.786943      G_dist: 2.924855      MSE: 20.574301      RMSE: 4.534075      MAE: 2.924855      MEDAE: 1.212049      R2: -0.365800      
+Training time used: 1.547s
+[TEST] [Epoch:   6   Iter:   27]   MSE: 20.3742   RMSE: 4.5138   MAE: 2.8287   MEDAE: 1.0315   R2: -0.2570   
+[TEST] [Epoch:    6]      MSE: 19.630079      RMSE: 4.429435      MAE: 2.831140      MEDAE: 1.151946      R2: -0.283414      
+Testing time used: 1.323s
+[TRAIN] [Epoch:   7   Iter:  107   Load_t: 0.011   Comp_t: 0.003]   D_GAN: 0.7870   G_GAN: 0.7845   G_dist: 2.8011   MSE: 19.3868   RMSE: 4.4030   MAE: 2.7578   MEDAE: 0.9901   R2: -0.2497   
+[TRAIN] [Epoch:    7]      D_GAN: 0.786967      G_GAN: 0.784512      G_dist: 2.801063      MSE: 19.257265      RMSE: 4.386491      MAE: 2.801063      MEDAE: 1.133374      R2: -0.278296      
+Training time used: 1.526s
+[TEST] [Epoch:   7   Iter:   27]   MSE: 19.0807   RMSE: 4.3681   MAE: 2.7142   MEDAE: 0.9795   R2: -0.1772   
+[TEST] [Epoch:    7]      MSE: 18.334764      RMSE: 4.280739      MAE: 2.712475      MEDAE: 1.087679      R2: -0.198671      
+Testing time used: 1.303s
+[TRAIN] [Epoch:   8   Iter:  107   Load_t: 0.012   Comp_t: 0.003]   D_GAN: 0.7845   G_GAN: 0.7824   G_dist: 2.6829   MSE: 17.1825   RMSE: 4.1452   MAE: 2.5783   MEDAE: 0.9804   R2: -0.1685   
+[TRAIN] [Epoch:    8]      D_GAN: 0.784470      G_GAN: 0.782390      G_dist: 2.682863      MSE: 17.975771      RMSE: 4.237962      MAE: 2.682863      MEDAE: 1.071257      R2: -0.193158      
+Training time used: 1.533s
+[TEST] [Epoch:   8   Iter:   27]   MSE: 17.8006   RMSE: 4.2191   MAE: 2.5959   MEDAE: 0.9383   R2: -0.0983   
+[TEST] [Epoch:    8]      MSE: 17.070887      RMSE: 4.130498      MAE: 2.593034      MEDAE: 1.032293      R2: -0.115990      
+Testing time used: 1.300s
+[TRAIN] [Epoch:   9   Iter:  107   Load_t: 0.012   Comp_t: 0.003]   D_GAN: 0.7824   G_GAN: 0.7810   G_dist: 2.5641   MSE: 17.9158   RMSE: 4.2327   MAE: 2.7317   MEDAE: 1.1841   R2: -0.1734   
+[TRAIN] [Epoch:    9]      D_GAN: 0.782434      G_GAN: 0.781030      G_dist: 2.564130      MSE: 16.726866      RMSE: 4.088020      MAE: 2.564130      MEDAE: 1.016887      R2: -0.110190      
+Training time used: 1.613s
+[TEST] [Epoch:   9   Iter:   27]   MSE: 16.5992   RMSE: 4.0742   MAE: 2.4843   MEDAE: 0.9007   R2: -0.0241   
+[TEST] [Epoch:    9]      MSE: 15.878243      RMSE: 3.983530      MAE: 2.478588      MEDAE: 0.985804      R2: -0.037970      
+Testing time used: 1.501s
+[TRAIN] [Epoch:  10   Iter:  107   Load_t: 0.012   Comp_t: 0.003]   D_GAN: 0.7810   G_GAN: 0.7804   G_dist: 2.4503   MSE: 15.1866   RMSE: 3.8970   MAE: 2.3118   MEDAE: 0.8121   R2: 0.0226   
+Saving the model at the end of epoch 10
+[TRAIN] [Epoch:   10]      D_GAN: 0.781028      G_GAN: 0.780361      G_dist: 2.450287      MSE: 15.548187      RMSE: 3.941286      MAE: 2.450287      MEDAE: 0.970793      R2: -0.031893      
+Training time used: 3.684s
+[TEST] [Epoch:  10   Iter:   27]   MSE: 15.4647   RMSE: 3.9325   MAE: 2.3800   MEDAE: 0.8667   R2: 0.0459   
+[TEST] [Epoch:   10]      MSE: 14.756867      RMSE: 3.840216      MAE: 2.371624      MEDAE: 0.948004      R2: 0.035384      
+Testing time used: 1.331s
+[TRAIN] [Epoch:  11   Iter:  107   Load_t: 0.011   Comp_t: 0.003]   D_GAN: 0.7803   G_GAN: 0.7802   G_dist: 2.3438   MSE: 12.1335   RMSE: 3.4833   MAE: 2.1253   MEDAE: 0.8954   R2: 0.1023   
+[TRAIN] [Epoch:   11]      D_GAN: 0.780327      G_GAN: 0.780167      G_dist: 2.343757      MSE: 14.439865      RMSE: 3.798144      MAE: 2.343757      MEDAE: 0.933401      R2: 0.041727      
+Training time used: 1.525s
+[TEST] [Epoch:  11   Iter:   27]   MSE: 14.3909   RMSE: 3.7935   MAE: 2.2800   MEDAE: 0.8313   R2: 0.1121   
+[TEST] [Epoch:   11]      MSE: 13.701011      RMSE: 3.700206      MAE: 2.270156      MEDAE: 0.911250      R2: 0.104452      
+Testing time used: 1.356s
+[TRAIN] [Epoch:  12   Iter:  107   Load_t: 0.012   Comp_t: 0.003]   D_GAN: 0.7802   G_GAN: 0.7814   G_dist: 2.2430   MSE: 14.6806   RMSE: 3.8315   MAE: 2.2979   MEDAE: 0.8177   R2: 0.1089   
+[TRAIN] [Epoch:   12]      D_GAN: 0.780170      G_GAN: 0.781400      G_dist: 2.242954      MSE: 13.397500      RMSE: 3.658418      MAE: 2.242954      MEDAE: 0.896868      R2: 0.110959      
+Training time used: 1.569s
+[TEST] [Epoch:  12   Iter:   27]   MSE: 13.3789   RMSE: 3.6577   MAE: 2.1847   MEDAE: 0.7962   R2: 0.1746   
+[TEST] [Epoch:   12]      MSE: 12.703871      RMSE: 3.562934      MAE: 2.172031      MEDAE: 0.878501      R2: 0.169673      
+Testing time used: 1.345s
+[TRAIN] [Epoch:  13   Iter:  107   Load_t: 0.012   Comp_t: 0.003]   D_GAN: 0.7814   G_GAN: 0.7820   G_dist: 2.1451   MSE: 12.3658   RMSE: 3.5165   MAE: 2.1192   MEDAE: 0.8067   R2: 0.1811   
+[TRAIN] [Epoch:   13]      D_GAN: 0.781425      G_GAN: 0.782043      G_dist: 2.145147      MSE: 12.412335      RMSE: 3.521267      MAE: 2.145147      MEDAE: 0.863370      R2: 0.176389      
+Training time used: 1.543s
+[TEST] [Epoch:  13   Iter:   27]   MSE: 12.4157   RMSE: 3.5236   MAE: 2.0913   MEDAE: 0.7603   R2: 0.2340   
+[TEST] [Epoch:   13]      MSE: 11.760376      RMSE: 3.427987      MAE: 2.077208      MEDAE: 0.846048      R2: 0.231386      
+Testing time used: 1.329s
+[TRAIN] [Epoch:  14   Iter:  107   Load_t: 0.012   Comp_t: 0.003]   D_GAN: 0.7821   G_GAN: 0.7806   G_dist: 2.0509   MSE: 11.3210   RMSE: 3.3647   MAE: 1.9798   MEDAE: 0.7041   R2: 0.2594   
+[TRAIN] [Epoch:   14]      D_GAN: 0.782073      G_GAN: 0.780564      G_dist: 2.050887      MSE: 11.481354      RMSE: 3.386564      MAE: 2.050886      MEDAE: 0.829925      R2: 0.238213      
+Training time used: 1.599s
+[TEST] [Epoch:  14   Iter:   27]   MSE: 11.5171   RMSE: 3.3937   MAE: 2.0035   MEDAE: 0.7296   R2: 0.2894   
+[TEST] [Epoch:   14]      MSE: 10.881764      RMSE: 3.297359      MAE: 1.987436      MEDAE: 0.814728      R2: 0.288851      
+Testing time used: 1.344s
+[TRAIN] [Epoch:  15   Iter:  107   Load_t: 0.012   Comp_t: 0.003]   D_GAN: 0.7806   G_GAN: 0.7804   G_dist: 1.9615   MSE: 8.3601   RMSE: 2.8914   MAE: 1.7122   MEDAE: 0.7125   R2: 0.3657   
+Saving the model at the end of epoch 15
+[TRAIN] [Epoch:   15]      D_GAN: 0.780555      G_GAN: 0.780373      G_dist: 1.961509      MSE: 10.614459      RMSE: 3.256128      MAE: 1.961509      MEDAE: 0.797385      R2: 0.295778      
+Training time used: 3.898s
+[TEST] [Epoch:  15   Iter:   27]   MSE: 10.6654   RMSE: 3.2658   MAE: 1.9185   MEDAE: 0.6929   R2: 0.3420   
+[TEST] [Epoch:   15]      MSE: 10.051499      RMSE: 3.168970      MAE: 1.900694      MEDAE: 0.784025      R2: 0.343152      
+Testing time used: 1.342s
+[TRAIN] [Epoch:  16   Iter:  107   Load_t: 0.012   Comp_t: 0.003]   D_GAN: 0.7804   G_GAN: 0.7802   G_dist: 1.8752   MSE: 9.4805   RMSE: 3.0790   MAE: 1.8612   MEDAE: 0.8479   R2: 0.3561   
+[TRAIN] [Epoch:   16]      D_GAN: 0.780393      G_GAN: 0.780199      G_dist: 1.875152      MSE: 9.795534      RMSE: 3.127921      MAE: 1.875152      MEDAE: 0.765859      R2: 0.350154      
+Training time used: 1.574s
+[TEST] [Epoch:  16   Iter:   27]   MSE: 9.8682   RMSE: 3.1414   MAE: 1.8369   MEDAE: 0.6646   R2: 0.3912   
+[TEST] [Epoch:   16]      MSE: 9.277148      RMSE: 3.044352      MAE: 1.817802      MEDAE: 0.754591      R2: 0.393793      
+Testing time used: 1.257s
+[TRAIN] [Epoch:  17   Iter:  107   Load_t: 0.011   Comp_t: 0.003]   D_GAN: 0.7802   G_GAN: 0.7800   G_dist: 1.7925   MSE: 10.6554   RMSE: 3.2643   MAE: 2.0318   MEDAE: 0.9307   R2: 0.3211   
+[TRAIN] [Epoch:   17]      D_GAN: 0.780200      G_GAN: 0.779974      G_dist: 1.792523      MSE: 9.032075      RMSE: 3.003475      MAE: 1.792523      MEDAE: 0.736017      R2: 0.400841      
+Training time used: 1.530s
+[TEST] [Epoch:  17   Iter:   27]   MSE: 9.1242   RMSE: 3.0206   MAE: 1.7605   MEDAE: 0.6394   R2: 0.4371   
+[TEST] [Epoch:   17]      MSE: 8.558524      RMSE: 2.923952      MAE: 1.740475      MEDAE: 0.725954      R2: 0.440788      
+Testing time used: 1.348s
+[TRAIN] [Epoch:  18   Iter:  107   Load_t: 0.012   Comp_t: 0.003]   D_GAN: 0.7800   G_GAN: 0.7799   G_dist: 1.7155   MSE: 8.8738   RMSE: 2.9789   MAE: 1.8602   MEDAE: 0.9253   R2: 0.4050   
+[TRAIN] [Epoch:   18]      D_GAN: 0.779979      G_GAN: 0.779932      G_dist: 1.715525      MSE: 8.323783      RMSE: 2.883223      MAE: 1.715525      MEDAE: 0.708099      R2: 0.447861      
+Training time used: 1.572s
+[TEST] [Epoch:  18   Iter:   27]   MSE: 8.4396   RMSE: 2.9051   MAE: 1.6902   MEDAE: 0.6178   R2: 0.4793   
+[TEST] [Epoch:   18]      MSE: 7.896530      RMSE: 2.808478      MAE: 1.669040      MEDAE: 0.698622      R2: 0.484076      
+Testing time used: 1.488s
+[TRAIN] [Epoch:  19   Iter:  107   Load_t: 0.013   Comp_t: 0.003]   D_GAN: 0.7799   G_GAN: 0.7799   G_dist: 1.6444   MSE: 7.7640   RMSE: 2.7864   MAE: 1.6488   MEDAE: 0.6584   R2: 0.4893   
+[TRAIN] [Epoch:   19]      D_GAN: 0.779934      G_GAN: 0.779915      G_dist: 1.644376      MSE: 7.671834      RMSE: 2.767930      MAE: 1.644376      MEDAE: 0.681255      R2: 0.491136      
+Training time used: 1.677s
+[TEST] [Epoch:  19   Iter:   27]   MSE: 7.7923   RMSE: 2.7915   MAE: 1.6228   MEDAE: 0.5976   R2: 0.5192   
+[TEST] [Epoch:   19]      MSE: 7.276673      RMSE: 2.695868      MAE: 1.601100      MEDAE: 0.673327      R2: 0.524607      
+Testing time used: 1.353s
+[TRAIN] [Epoch:  20   Iter:  107   Load_t: 0.013   Comp_t: 0.003]   D_GAN: 0.7799   G_GAN: 0.7799   G_dist: 1.5768   MSE: 7.0564   RMSE: 2.6564   MAE: 1.5590   MEDAE: 0.5830   R2: 0.5352   
+Saving the model at the end of epoch 20
+[TRAIN] [Epoch:   20]      D_GAN: 0.779916      G_GAN: 0.779898      G_dist: 1.576757      MSE: 7.061735      RMSE: 2.655508      MAE: 1.576757      MEDAE: 0.656607      R2: 0.531630      
+Training time used: 3.952s
+[TEST] [Epoch:  20   Iter:   27]   MSE: 7.1786   RMSE: 2.6793   MAE: 1.5558   MEDAE: 0.5730   R2: 0.5571   
+[TEST] [Epoch:   20]      MSE: 6.688748      RMSE: 2.584533      MAE: 1.533573      MEDAE: 0.650175      R2: 0.563047      
+Testing time used: 1.298s
+[TRAIN] [Epoch:  21   Iter:  107   Load_t: 0.012   Comp_t: 0.003]   D_GAN: 0.7799   G_GAN: 0.7799   G_dist: 1.5094   MSE: 7.1170   RMSE: 2.6678   MAE: 1.6081   MEDAE: 0.6847   R2: 0.5444   
+[TRAIN] [Epoch:   21]      D_GAN: 0.779899      G_GAN: 0.779889      G_dist: 1.509444      MSE: 6.483524      RMSE: 2.544388      MAE: 1.509444      MEDAE: 0.633812      R2: 0.570002      
+Training time used: 1.530s
+[TEST] [Epoch:  21   Iter:   27]   MSE: 6.5976   RMSE: 2.5686   MAE: 1.4895   MEDAE: 0.5574   R2: 0.5929   
+[TEST] [Epoch:   21]      MSE: 6.133837      RMSE: 2.474857      MAE: 1.466192      MEDAE: 0.628140      R2: 0.599326      
+Testing time used: 1.310s
+[TRAIN] [Epoch:  22   Iter:  107   Load_t: 0.011   Comp_t: 0.003]   D_GAN: 0.7799   G_GAN: 0.7799   G_dist: 1.4423   MSE: 6.0477   RMSE: 2.4592   MAE: 1.4131   MEDAE: 0.5106   R2: 0.6102   
+[TRAIN] [Epoch:   22]      D_GAN: 0.779890      G_GAN: 0.779888      G_dist: 1.442306      MSE: 5.938340      RMSE: 2.434980      MAE: 1.442307      MEDAE: 0.612415      R2: 0.606179      
+Training time used: 1.534s
+[TEST] [Epoch:  22   Iter:   27]   MSE: 6.0643   RMSE: 2.4626   MAE: 1.4269   MEDAE: 0.5411   R2: 0.6258   
+[TEST] [Epoch:   22]      MSE: 5.628885      RMSE: 2.370648      MAE: 1.403877      MEDAE: 0.610108      R2: 0.632336      
+Testing time used: 1.498s
+[TRAIN] [Epoch:  23   Iter:  107   Load_t: 0.012   Comp_t: 0.003]   D_GAN: 0.7799   G_GAN: 0.7799   G_dist: 1.3801   MSE: 6.1308   RMSE: 2.4761   MAE: 1.4209   MEDAE: 0.5064   R2: 0.6279   
+[TRAIN] [Epoch:   23]      D_GAN: 0.779889      G_GAN: 0.779886      G_dist: 1.380090      MSE: 5.442472      RMSE: 2.331017      MAE: 1.380090      MEDAE: 0.594580      R2: 0.639078      
+Training time used: 1.586s
+[TEST] [Epoch:  23   Iter:   27]   MSE: 5.5706   RMSE: 2.3602   MAE: 1.3693   MEDAE: 0.5279   R2: 0.6563   
+[TEST] [Epoch:   23]      MSE: 5.162147      RMSE: 2.270072      MAE: 1.346130      MEDAE: 0.594266      R2: 0.662845      
+Testing time used: 1.347s
+[TRAIN] [Epoch:  24   Iter:  107   Load_t: 0.011   Comp_t: 0.003]   D_GAN: 0.7799   G_GAN: 0.7799   G_dist: 1.3224   MSE: 5.3463   RMSE: 2.3122   MAE: 1.3407   MEDAE: 0.5088   R2: 0.6615   
+[TRAIN] [Epoch:   24]      D_GAN: 0.779886      G_GAN: 0.779884      G_dist: 1.322373      MSE: 4.984375      RMSE: 2.230671      MAE: 1.322373      MEDAE: 0.577922      R2: 0.669468      
+Training time used: 1.513s
+[TEST] [Epoch:  24   Iter:   27]   MSE: 5.1099   RMSE: 2.2605   MAE: 1.3131   MEDAE: 0.5167   R2: 0.6847   
+[TEST] [Epoch:   24]      MSE: 4.729202      RMSE: 2.172621      MAE: 1.290157      MEDAE: 0.578564      R2: 0.691143      
+Testing time used: 1.349s
+[TRAIN] [Epoch:  25   Iter:  107   Load_t: 0.011   Comp_t: 0.003]   D_GAN: 0.7799   G_GAN: 0.7799   G_dist: 1.2665   MSE: 5.1934   RMSE: 2.2789   MAE: 1.3655   MEDAE: 0.6402   R2: 0.6721   
+Saving the model at the end of epoch 25
+[TRAIN] [Epoch:   25]      D_GAN: 0.779885      G_GAN: 0.779883      G_dist: 1.266525      MSE: 4.560288      RMSE: 2.133582      MAE: 1.266525      MEDAE: 0.561737      R2: 0.697597      
+Training time used: 3.573s
+[TEST] [Epoch:  25   Iter:   27]   MSE: 4.6807   RMSE: 2.1635   MAE: 1.2594   MEDAE: 0.5023   R2: 0.7112   
+[TEST] [Epoch:   25]      MSE: 4.327709      RMSE: 2.078165      MAE: 1.236669      MEDAE: 0.563138      R2: 0.717381      
+Testing time used: 1.267s
+[TRAIN] [Epoch:  26   Iter:  107   Load_t: 0.012   Comp_t: 0.003]   D_GAN: 0.7799   G_GAN: 0.7799   G_dist: 1.2131   MSE: 3.6369   RMSE: 1.9071   MAE: 1.1898   MEDAE: 0.6523   R2: 0.7309   
+[TRAIN] [Epoch:   26]      D_GAN: 0.779884      G_GAN: 0.779883      G_dist: 1.213092      MSE: 4.167189      RMSE: 2.039464      MAE: 1.213092      MEDAE: 0.547134      R2: 0.723667      
+Training time used: 1.536s
+[TEST] [Epoch:  26   Iter:   27]   MSE: 4.2837   RMSE: 2.0697   MAE: 1.2080   MEDAE: 0.4922   R2: 0.7357   
+[TEST] [Epoch:   26]      MSE: 3.958858      RMSE: 1.987434      MAE: 1.186025      MEDAE: 0.549232      R2: 0.741484      
+Testing time used: 1.322s
+[TRAIN] [Epoch:  27   Iter:  107   Load_t: 0.011   Comp_t: 0.003]   D_GAN: 0.7799   G_GAN: 0.7799   G_dist: 1.1626   MSE: 3.7923   RMSE: 1.9474   MAE: 1.1452   MEDAE: 0.4816   R2: 0.7520   
+[TRAIN] [Epoch:   27]      D_GAN: 0.779883      G_GAN: 0.779882      G_dist: 1.162614      MSE: 3.806502      RMSE: 1.949116      MAE: 1.162614      MEDAE: 0.533155      R2: 0.747583      
+Training time used: 1.510s
+[TEST] [Epoch:  27   Iter:   27]   MSE: 3.9174   RMSE: 1.9792   MAE: 1.1592   MEDAE: 0.4838   R2: 0.7583   
+[TEST] [Epoch:   27]      MSE: 3.620394      RMSE: 1.900368      MAE: 1.137999      MEDAE: 0.537023      R2: 0.763599      
+Testing time used: 1.330s
+[TRAIN] [Epoch:  28   Iter:  107   Load_t: 0.012   Comp_t: 0.003]   D_GAN: 0.7799   G_GAN: 0.7799   G_dist: 1.1148   MSE: 3.2968   RMSE: 1.8157   MAE: 1.0639   MEDAE: 0.4546   R2: 0.7789   
+[TRAIN] [Epoch:   28]      D_GAN: 0.779882      G_GAN: 0.779881      G_dist: 1.114772      MSE: 3.476121      RMSE: 1.862519      MAE: 1.114772      MEDAE: 0.520227      R2: 0.769486      
+Training time used: 1.576s
+[TEST] [Epoch:  28   Iter:   27]   MSE: 3.5803   RMSE: 1.8922   MAE: 1.1127   MEDAE: 0.4720   R2: 0.7791   
+[TEST] [Epoch:   28]      MSE: 3.309781      RMSE: 1.816795      MAE: 1.092221      MEDAE: 0.524644      R2: 0.783892      
+Testing time used: 1.324s
+[TRAIN] [Epoch:  29   Iter:  107   Load_t: 0.011   Comp_t: 0.003]   D_GAN: 0.7799   G_GAN: 0.7799   G_dist: 1.0691   MSE: 2.9134   RMSE: 1.7069   MAE: 1.0420   MEDAE: 0.5541   R2: 0.7993   
+[TRAIN] [Epoch:   29]      D_GAN: 0.779882      G_GAN: 0.779881      G_dist: 1.069087      MSE: 3.173232      RMSE: 1.779432      MAE: 1.069087      MEDAE: 0.507812      R2: 0.789561      
+Training time used: 1.528s
+[TEST] [Epoch:  29   Iter:   27]   MSE: 3.2697   RMSE: 1.8082   MAE: 1.0681   MEDAE: 0.4636   R2: 0.7983   
+[TEST] [Epoch:   29]      MSE: 3.026106      RMSE: 1.736956      MAE: 1.048705      MEDAE: 0.512388      R2: 0.802421      
+Testing time used: 1.362s
+[TRAIN] [Epoch:  30   Iter:  107   Load_t: 0.012   Comp_t: 0.003]   D_GAN: 0.7799   G_GAN: 0.7799   G_dist: 1.0257   MSE: 2.8016   RMSE: 1.6738   MAE: 1.0261   MEDAE: 0.5465   R2: 0.8133   
+Saving the model at the end of epoch 30
+[TRAIN] [Epoch:   30]      D_GAN: 0.779881      G_GAN: 0.779881      G_dist: 1.025726      MSE: 2.897306      RMSE: 1.700209      MAE: 1.025725      MEDAE: 0.495505      R2: 0.807846      
+Training time used: 3.953s
+[TEST] [Epoch:  30   Iter:   27]   MSE: 2.9842   RMSE: 1.7275   MAE: 1.0255   MEDAE: 0.4576   R2: 0.8159   
+[TEST] [Epoch:   30]      MSE: 2.766834      RMSE: 1.660622      MAE: 1.007470      MEDAE: 0.500590      R2: 0.819356      
+Testing time used: 1.307s
+[TRAIN] [Epoch:  31   Iter:  107   Load_t: 0.011   Comp_t: 0.003]   D_GAN: 0.7799   G_GAN: 0.7799   G_dist: 0.9847   MSE: 2.5219   RMSE: 1.5881   MAE: 0.9268   MEDAE: 0.3857   R2: 0.8372   
+[TRAIN] [Epoch:   31]      D_GAN: 0.779881      G_GAN: 0.779880      G_dist: 0.984713      MSE: 2.645607      RMSE: 1.624573      MAE: 0.984713      MEDAE: 0.483051      R2: 0.824521      
+Training time used: 1.494s
+[TEST] [Epoch:  31   Iter:   27]   MSE: 2.7242   RMSE: 1.6505   MAE: 0.9849   MEDAE: 0.4457   R2: 0.8319   
+[TEST] [Epoch:   31]      MSE: 2.532434      RMSE: 1.588446      MAE: 0.968172      MEDAE: 0.488678      R2: 0.834662      
+Testing time used: 1.317s
+[TRAIN] [Epoch:  32   Iter:  107   Load_t: 0.012   Comp_t: 0.003]   D_GAN: 0.7799   G_GAN: 0.7799   G_dist: 0.9456   MSE: 2.5846   RMSE: 1.6077   MAE: 0.9603   MEDAE: 0.4406   R2: 0.8358   
+[TRAIN] [Epoch:   32]      D_GAN: 0.779880      G_GAN: 0.779880      G_dist: 0.945635      MSE: 2.418339      RMSE: 1.553107      MAE: 0.945635      MEDAE: 0.470777      R2: 0.839574      
+Training time used: 1.598s
+[TEST] [Epoch:  32   Iter:   27]   MSE: 2.4870   RMSE: 1.5770   MAE: 0.9462   MEDAE: 0.4379   R2: 0.8466   
+[TEST] [Epoch:   32]      MSE: 2.320463      RMSE: 1.520219      MAE: 0.931092      MEDAE: 0.477430      R2: 0.848502      
+Testing time used: 1.300s
+[TRAIN] [Epoch:  33   Iter:  107   Load_t: 0.012   Comp_t: 0.003]   D_GAN: 0.7799   G_GAN: 0.7799   G_dist: 0.9089   MSE: 2.3290   RMSE: 1.5261   MAE: 0.9292   MEDAE: 0.4552   R2: 0.8514   
+[TRAIN] [Epoch:   33]      D_GAN: 0.779880      G_GAN: 0.779879      G_dist: 0.908879      MSE: 2.213442      RMSE: 1.485726      MAE: 0.908879      MEDAE: 0.458583      R2: 0.853141      
+Training time used: 1.543s
+[TEST] [Epoch:  33   Iter:   27]   MSE: 2.2730   RMSE: 1.5077   MAE: 0.9094   MEDAE: 0.4295   R2: 0.8598   
+[TEST] [Epoch:   33]      MSE: 2.130201      RMSE: 1.456240      MAE: 0.896006      MEDAE: 0.464768      R2: 0.860922      
+Testing time used: 1.314s
+[TRAIN] [Epoch:  34   Iter:  107   Load_t: 0.011   Comp_t: 0.003]   D_GAN: 0.7799   G_GAN: 0.7799   G_dist: 0.8741   MSE: 2.0081   RMSE: 1.4171   MAE: 0.8788   MEDAE: 0.4631   R2: 0.8681   
+[TRAIN] [Epoch:   34]      D_GAN: 0.779880      G_GAN: 0.779879      G_dist: 0.874142      MSE: 2.029943      RMSE: 1.422653      MAE: 0.874142      MEDAE: 0.446087      R2: 0.865288      
+Training time used: 1.537s
+[TEST] [Epoch:  34   Iter:   27]   MSE: 2.0795   RMSE: 1.4420   MAE: 0.8743   MEDAE: 0.4222   R2: 0.8717   
+[TEST] [Epoch:   34]      MSE: 1.958845      RMSE: 1.396102      MAE: 0.862448      MEDAE: 0.452870      R2: 0.872106      
+Testing time used: 1.320s
+[TRAIN] [Epoch:  35   Iter:  107   Load_t: 0.011   Comp_t: 0.003]   D_GAN: 0.7799   G_GAN: 0.7799   G_dist: 0.8411   MSE: 2.2702   RMSE: 1.5067   MAE: 0.9475   MEDAE: 0.5168   R2: 0.8579   
+Saving the model at the end of epoch 35
+[TRAIN] [Epoch:   35]      D_GAN: 0.779879      G_GAN: 0.779878      G_dist: 0.841053      MSE: 1.865246      RMSE: 1.363546      MAE: 0.841053      MEDAE: 0.434019      R2: 0.876186      
+Training time used: 4.084s
+[TEST] [Epoch:  35   Iter:   27]   MSE: 1.9056   RMSE: 1.3804   MAE: 0.8408   MEDAE: 0.4116   R2: 0.8824   
+[TEST] [Epoch:   35]      MSE: 1.807230      RMSE: 1.340624      MAE: 0.830684      MEDAE: 0.440337      R2: 0.881999      
+Testing time used: 1.326s
+[TRAIN] [Epoch:  36   Iter:  107   Load_t: 0.012   Comp_t: 0.003]   D_GAN: 0.7799   G_GAN: 0.7799   G_dist: 0.8099   MSE: 1.6054   RMSE: 1.2670   MAE: 0.7984   MEDAE: 0.4309   R2: 0.8866   
+[TRAIN] [Epoch:   36]      D_GAN: 0.779879      G_GAN: 0.779878      G_dist: 0.809873      MSE: 1.720094      RMSE: 1.309205      MAE: 0.809873      MEDAE: 0.420857      R2: 0.885788      
+Training time used: 1.565s
+[TEST] [Epoch:  36   Iter:   27]   MSE: 1.7497   RMSE: 1.3228   MAE: 0.8083   MEDAE: 0.4039   R2: 0.8920   
+[TEST] [Epoch:   36]      MSE: 1.673519      RMSE: 1.289684      MAE: 0.801102      MEDAE: 0.427882      R2: 0.890721      
+Testing time used: 1.287s
+[TRAIN] [Epoch:  37   Iter:  107   Load_t: 0.011   Comp_t: 0.003]   D_GAN: 0.7799   G_GAN: 0.7799   G_dist: 0.7807   MSE: 1.7109   RMSE: 1.3080   MAE: 0.8199   MEDAE: 0.4379   R2: 0.8905   
+[TRAIN] [Epoch:   37]      D_GAN: 0.779878      G_GAN: 0.779878      G_dist: 0.780698      MSE: 1.592107      RMSE: 1.259311      MAE: 0.780698      MEDAE: 0.408131      R2: 0.894250      
+Training time used: 1.547s
+[TEST] [Epoch:  37   Iter:   27]   MSE: 1.6125   RMSE: 1.2698   MAE: 0.7784   MEDAE: 0.3947   R2: 0.9005   
+[TEST] [Epoch:   37]      MSE: 1.556855      RMSE: 1.243511      MAE: 0.773807      MEDAE: 0.415896      R2: 0.898330      
+Testing time used: 1.323s
+[TRAIN] [Epoch:  38   Iter:  107   Load_t: 0.012   Comp_t: 0.003]   D_GAN: 0.7799   G_GAN: 0.7799   G_dist: 0.7540   MSE: 1.2998   RMSE: 1.1401   MAE: 0.6837   MEDAE: 0.3243   R2: 0.9104   
+[TRAIN] [Epoch:   38]      D_GAN: 0.779878      G_GAN: 0.779877      G_dist: 0.753982      MSE: 1.481034      RMSE: 1.214309      MAE: 0.753982      MEDAE: 0.395890      R2: 0.901591      
+Training time used: 1.599s
+[TEST] [Epoch:  38   Iter:   27]   MSE: 1.4938   RMSE: 1.2222   MAE: 0.7513   MEDAE: 0.3857   R2: 0.9078   
+[TEST] [Epoch:   38]      MSE: 1.455611      RMSE: 1.201974      MAE: 0.749241      MEDAE: 0.404185      R2: 0.904932      
+Testing time used: 1.334s
+[TRAIN] [Epoch:  39   Iter:  107   Load_t: 0.012   Comp_t: 0.003]   D_GAN: 0.7799   G_GAN: 0.7799   G_dist: 0.7301   MSE: 1.6036   RMSE: 1.2663   MAE: 0.8057   MEDAE: 0.4782   R2: 0.8962   
+[TRAIN] [Epoch:   39]      D_GAN: 0.779878      G_GAN: 0.779877      G_dist: 0.730057      MSE: 1.385107      RMSE: 1.174015      MAE: 0.730057      MEDAE: 0.384081      R2: 0.907928      
+Training time used: 1.591s
+[TEST] [Epoch:  39   Iter:   27]   MSE: 1.3901   RMSE: 1.1790   MAE: 0.7267   MEDAE: 0.3755   R2: 0.9142   
+[TEST] [Epoch:   39]      MSE: 1.368558      RMSE: 1.165046      MAE: 0.727110      MEDAE: 0.392827      R2: 0.910608      
+Testing time used: 1.360s
+[TRAIN] [Epoch:  40   Iter:  107   Load_t: 0.012   Comp_t: 0.003]   D_GAN: 0.7799   G_GAN: 0.7799   G_dist: 0.7086   MSE: 1.4473   RMSE: 1.2031   MAE: 0.7667   MEDAE: 0.4483   R2: 0.9036   
+Saving the model at the end of epoch 40
+[TRAIN] [Epoch:   40]      D_GAN: 0.779877      G_GAN: 0.779876      G_dist: 0.708607      MSE: 1.302946      RMSE: 1.138320      MAE: 0.708607      MEDAE: 0.372900      R2: 0.913353      
+Training time used: 4.088s
+[TEST] [Epoch:  40   Iter:   27]   MSE: 1.3010   RMSE: 1.1406   MAE: 0.7044   MEDAE: 0.3688   R2: 0.9197   
+[TEST] [Epoch:   40]      MSE: 1.294427      RMSE: 1.132621      MAE: 0.707185      MEDAE: 0.382714      R2: 0.915439      
+Testing time used: 1.318s
+[TRAIN] [Epoch:  41   Iter:  107   Load_t: 0.012   Comp_t: 0.003]   D_GAN: 0.7799   G_GAN: 0.7799   G_dist: 0.6893   MSE: 1.3073   RMSE: 1.1434   MAE: 0.7048   MEDAE: 0.3526   R2: 0.9149   
+[TRAIN] [Epoch:   41]      D_GAN: 0.779877      G_GAN: 0.779876      G_dist: 0.689302      MSE: 1.233173      RMSE: 1.107056      MAE: 0.689302      MEDAE: 0.362818      R2: 0.917957      
+Training time used: 1.577s
+[TEST] [Epoch:  41   Iter:   27]   MSE: 1.2252   RMSE: 1.1069   MAE: 0.6845   MEDAE: 0.3606   R2: 0.9244   
+[TEST] [Epoch:   41]      MSE: 1.232081      RMSE: 1.104590      MAE: 0.689796      MEDAE: 0.373229      R2: 0.919501      
+Testing time used: 1.341s
+[TRAIN] [Epoch:  42   Iter:  107   Load_t: 0.012   Comp_t: 0.003]   D_GAN: 0.7799   G_GAN: 0.7799   G_dist: 0.6725   MSE: 1.1845   RMSE: 1.0884   MAE: 0.6641   MEDAE: 0.3274   R2: 0.9248   
+[TRAIN] [Epoch:   42]      D_GAN: 0.779876      G_GAN: 0.779876      G_dist: 0.672517      MSE: 1.174700      RMSE: 1.080106      MAE: 0.672517      MEDAE: 0.353602      R2: 0.921814      
+Training time used: 1.565s
+[TEST] [Epoch:  42   Iter:   27]   MSE: 1.1600   RMSE: 1.0770   MAE: 0.6661   MEDAE: 0.3533   R2: 0.9284   
+[TEST] [Epoch:   42]      MSE: 1.180318      RMSE: 1.080736      MAE: 0.674393      MEDAE: 0.364492      R2: 0.922872      
+Testing time used: 1.332s
+[TRAIN] [Epoch:  43   Iter:  107   Load_t: 0.012   Comp_t: 0.003]   D_GAN: 0.7799   G_GAN: 0.7799   G_dist: 0.6577   MSE: 1.2365   RMSE: 1.1120   MAE: 0.6857   MEDAE: 0.3383   R2: 0.9171   
+[TRAIN] [Epoch:   43]      D_GAN: 0.779876      G_GAN: 0.779876      G_dist: 0.657706      MSE: 1.126416      RMSE: 1.057291      MAE: 0.657706      MEDAE: 0.344928      R2: 0.924996      
+Training time used: 1.562s
+[TEST] [Epoch:  43   Iter:   27]   MSE: 1.1059   RMSE: 1.0516   MAE: 0.6507   MEDAE: 0.3468   R2: 0.9318   
+[TEST] [Epoch:   43]      MSE: 1.137508      RMSE: 1.060566      MAE: 0.661316      MEDAE: 0.356608      R2: 0.925660      
+Testing time used: 1.337s
+[TRAIN] [Epoch:  44   Iter:  107   Load_t: 0.011   Comp_t: 0.003]   D_GAN: 0.7799   G_GAN: 0.7799   G_dist: 0.6452   MSE: 0.9293   RMSE: 0.9640   MAE: 0.6053   MEDAE: 0.3014   R2: 0.9403   
+[TRAIN] [Epoch:   44]      D_GAN: 0.779876      G_GAN: 0.779875      G_dist: 0.645194      MSE: 1.086582      RMSE: 1.038050      MAE: 0.645194      MEDAE: 0.337218      R2: 0.927620      
+Training time used: 1.509s
+[TEST] [Epoch:  44   Iter:   27]   MSE: 1.0609   RMSE: 1.0300   MAE: 0.6369   MEDAE: 0.3407   R2: 0.9345   
+[TEST] [Epoch:   44]      MSE: 1.102244      RMSE: 1.043640      MAE: 0.650139      MEDAE: 0.349121      R2: 0.927956      
+Testing time used: 1.333s
+[TRAIN] [Epoch:  45   Iter:  107   Load_t: 0.014   Comp_t: 0.003]   D_GAN: 0.7799   G_GAN: 0.7799   G_dist: 0.6345   MSE: 1.1826   RMSE: 1.0875   MAE: 0.6670   MEDAE: 0.3242   R2: 0.9207   
+Saving the model at the end of epoch 45
+[TRAIN] [Epoch:   45]      D_GAN: 0.779876      G_GAN: 0.779875      G_dist: 0.634535      MSE: 1.054113      RMSE: 1.022057      MAE: 0.634536      MEDAE: 0.330191      R2: 0.929757      
+Training time used: 4.437s
+[TEST] [Epoch:  45   Iter:   27]   MSE: 1.0238   RMSE: 1.0118   MAE: 0.6254   MEDAE: 0.3330   R2: 0.9368   
+[TEST] [Epoch:   45]      MSE: 1.073550      RMSE: 1.029640      MAE: 0.640590      MEDAE: 0.342810      R2: 0.929823      
+Testing time used: 1.316s
+[TRAIN] [Epoch:  46   Iter:  107   Load_t: 0.011   Comp_t: 0.003]   D_GAN: 0.7799   G_GAN: 0.7799   G_dist: 0.6255   MSE: 0.7280   RMSE: 0.8532   MAE: 0.5186   MEDAE: 0.2414   R2: 0.9530   
+[TRAIN] [Epoch:   46]      D_GAN: 0.779876      G_GAN: 0.779875      G_dist: 0.625490      MSE: 1.027698      RMSE: 1.008827      MAE: 0.625490      MEDAE: 0.324335      R2: 0.931494      
+Training time used: 1.541s
+[TEST] [Epoch:  46   Iter:   27]   MSE: 0.9950   RMSE: 0.9975   MAE: 0.6157   MEDAE: 0.3286   R2: 0.9386   
+[TEST] [Epoch:   46]      MSE: 1.050936      RMSE: 1.018456      MAE: 0.632589      MEDAE: 0.337378      R2: 0.931295      
+Testing time used: 1.318s
+[TRAIN] [Epoch:  47   Iter:  107   Load_t: 0.012   Comp_t: 0.003]   D_GAN: 0.7799   G_GAN: 0.7799   G_dist: 0.6179   MSE: 1.1511   RMSE: 1.0729   MAE: 0.6549   MEDAE: 0.3168   R2: 0.9228   
+[TRAIN] [Epoch:   47]      D_GAN: 0.779876      G_GAN: 0.779877      G_dist: 0.617929      MSE: 1.006988      RMSE: 0.998307      MAE: 0.617929      MEDAE: 0.318985      R2: 0.932855      
+Training time used: 1.550s
+[TEST] [Epoch:  47   Iter:   27]   MSE: 0.9713   RMSE: 0.9856   MAE: 0.6078   MEDAE: 0.3259   R2: 0.9401   
+[TEST] [Epoch:   47]      MSE: 1.033446      RMSE: 1.009709      MAE: 0.626439      MEDAE: 0.332999      R2: 0.932432      
+Testing time used: 1.325s
+[TRAIN] [Epoch:  48   Iter:  107   Load_t: 0.012   Comp_t: 0.003]   D_GAN: 0.7799   G_GAN: 0.7799   G_dist: 0.6121   MSE: 0.8645   RMSE: 0.9298   MAE: 0.5375   MEDAE: 0.2313   R2: 0.9427   
+[TRAIN] [Epoch:   48]      D_GAN: 0.779877      G_GAN: 0.779881      G_dist: 0.612136      MSE: 0.990943      RMSE: 0.990056      MAE: 0.612136      MEDAE: 0.315032      R2: 0.933908      
+Training time used: 1.578s
+[TEST] [Epoch:  48   Iter:   27]   MSE: 0.9526   RMSE: 0.9760   MAE: 0.6013   MEDAE: 0.3223   R2: 0.9412   
+[TEST] [Epoch:   48]      MSE: 1.019697      RMSE: 1.002772      MAE: 0.621326      MEDAE: 0.329075      R2: 0.933326      
+Testing time used: 1.329s
+[TRAIN] [Epoch:  49   Iter:  107   Load_t: 0.011   Comp_t: 0.003]   D_GAN: 0.7799   G_GAN: 0.7799   G_dist: 0.6074   MSE: 0.6673   RMSE: 0.8169   MAE: 0.4939   MEDAE: 0.2253   R2: 0.9569   
+[TRAIN] [Epoch:   49]      D_GAN: 0.779881      G_GAN: 0.779890      G_dist: 0.607379      MSE: 0.978469      RMSE: 0.983582      MAE: 0.607379      MEDAE: 0.311682      R2: 0.934727      
+Training time used: 1.530s
+[TEST] [Epoch:  49   Iter:   27]   MSE: 0.9384   RMSE: 0.9687   MAE: 0.5964   MEDAE: 0.3173   R2: 0.9421   
+[TEST] [Epoch:   49]      MSE: 1.008897      RMSE: 0.997276      MAE: 0.617471      MEDAE: 0.325949      R2: 0.934028      
+Testing time used: 1.319s
+[TRAIN] [Epoch:  50   Iter:  107   Load_t: 0.012   Comp_t: 0.003]   D_GAN: 0.7799   G_GAN: 0.7799   G_dist: 0.6038   MSE: 0.7132   RMSE: 0.8445   MAE: 0.5031   MEDAE: 0.2154   R2: 0.9529   
+Saving the model at the end of epoch 50
+[TRAIN] [Epoch:   50]      D_GAN: 0.779890      G_GAN: 0.779912      G_dist: 0.603815      MSE: 0.968748      RMSE: 0.978490      MAE: 0.603815      MEDAE: 0.308670      R2: 0.935364      
+Training time used: 4.186s
+[TEST] [Epoch:  50   Iter:   27]   MSE: 0.9281   RMSE: 0.9634   MAE: 0.5925   MEDAE: 0.3163   R2: 0.9427   
+[TEST] [Epoch:   50]      MSE: 1.000348      RMSE: 0.992903      MAE: 0.614185      MEDAE: 0.323685      R2: 0.934584      
+Testing time used: 1.263s
+[TRAIN] [Epoch:  51   Iter:  107   Load_t: 0.012   Comp_t: 0.003]   D_GAN: 0.7799   G_GAN: 0.7800   G_dist: 0.6007   MSE: 1.9066   RMSE: 1.3808   MAE: 0.8327   MEDAE: 0.4844   R2: 0.8785   
+[TRAIN] [Epoch:   51]      D_GAN: 0.779912      G_GAN: 0.779959      G_dist: 0.600736      MSE: 0.960984      RMSE: 0.974408      MAE: 0.600736      MEDAE: 0.306558      R2: 0.935874      
+Training time used: 1.598s
+[TEST] [Epoch:  51   Iter:   27]   MSE: 0.9196   RMSE: 0.9590   MAE: 0.5896   MEDAE: 0.3154   R2: 0.9433   
+[TEST] [Epoch:   51]      MSE: 0.994243      RMSE: 0.989766      MAE: 0.611879      MEDAE: 0.322373      R2: 0.934980      
+Testing time used: 1.335s
+[TRAIN] [Epoch:  52   Iter:  107   Load_t: 0.012   Comp_t: 0.003]   D_GAN: 0.7800   G_GAN: 0.7801   G_dist: 0.5985   MSE: 0.7122   RMSE: 0.8439   MAE: 0.5060   MEDAE: 0.2260   R2: 0.9541   
+[TRAIN] [Epoch:   52]      D_GAN: 0.779958      G_GAN: 0.780061      G_dist: 0.598495      MSE: 0.955335      RMSE: 0.971415      MAE: 0.598495      MEDAE: 0.305039      R2: 0.936244      
+Training time used: 1.568s
+[TEST] [Epoch:  52   Iter:   27]   MSE: 0.9135   RMSE: 0.9558   MAE: 0.5873   MEDAE: 0.3136   R2: 0.9436   
+[TEST] [Epoch:   52]      MSE: 0.989795      RMSE: 0.987465      MAE: 0.610334      MEDAE: 0.321202      R2: 0.935269      
+Testing time used: 1.355s
+[TRAIN] [Epoch:  53   Iter:  107   Load_t: 0.012   Comp_t: 0.003]   D_GAN: 0.7801   G_GAN: 0.7802   G_dist: 0.5969   MSE: 1.0028   RMSE: 1.0014   MAE: 0.6336   MEDAE: 0.3245   R2: 0.9355   
+[TRAIN] [Epoch:   53]      D_GAN: 0.780064      G_GAN: 0.780181      G_dist: 0.596944      MSE: 0.951131      RMSE: 0.969177      MAE: 0.596944      MEDAE: 0.303805      R2: 0.936519      
+Training time used: 1.580s
+[TEST] [Epoch:  53   Iter:   27]   MSE: 0.9079   RMSE: 0.9529   MAE: 0.5856   MEDAE: 0.3149   R2: 0.9440   
+[TEST] [Epoch:   53]      MSE: 0.986174      RMSE: 0.985585      MAE: 0.608978      MEDAE: 0.320320      R2: 0.935505      
+Testing time used: 1.354s
+[TRAIN] [Epoch:  54   Iter:  107   Load_t: 0.012   Comp_t: 0.003]   D_GAN: 0.7802   G_GAN: 0.7803   G_dist: 0.5956   MSE: 1.1997   RMSE: 1.0953   MAE: 0.6942   MEDAE: 0.3936   R2: 0.9243   
+[TRAIN] [Epoch:   54]      D_GAN: 0.780181      G_GAN: 0.780322      G_dist: 0.595632      MSE: 0.947698      RMSE: 0.967335      MAE: 0.595632      MEDAE: 0.303039      R2: 0.936743      
+Training time used: 1.590s
+[TEST] [Epoch:  54   Iter:   27]   MSE: 0.9049   RMSE: 0.9513   MAE: 0.5847   MEDAE: 0.3140   R2: 0.9442   
+[TEST] [Epoch:   54]      MSE: 0.983183      RMSE: 0.984042      MAE: 0.607916      MEDAE: 0.319300      R2: 0.935699      
+Testing time used: 1.324s
+[TRAIN] [Epoch:  55   Iter:  107   Load_t: 0.011   Comp_t: 0.003]   D_GAN: 0.7803   G_GAN: 0.7801   G_dist: 0.5947   MSE: 1.1195   RMSE: 1.0581   MAE: 0.6377   MEDAE: 0.3044   R2: 0.9300   
+Saving the model at the end of epoch 55
+[TRAIN] [Epoch:   55]      D_GAN: 0.780324      G_GAN: 0.780125      G_dist: 0.594683      MSE: 0.945154      RMSE: 0.965975      MAE: 0.594683      MEDAE: 0.302278      R2: 0.936910      
+Training time used: 4.118s
+[TEST] [Epoch:  55   Iter:   27]   MSE: 0.9026   RMSE: 0.9501   MAE: 0.5839   MEDAE: 0.3133   R2: 0.9443   
+[TEST] [Epoch:   55]      MSE: 0.980749      RMSE: 0.982784      MAE: 0.606996      MEDAE: 0.318715      R2: 0.935858      
+Testing time used: 1.309s
+[TRAIN] [Epoch:  56   Iter:  107   Load_t: 0.011   Comp_t: 0.003]   D_GAN: 0.7801   G_GAN: 0.7800   G_dist: 0.5939   MSE: 0.8304   RMSE: 0.9113   MAE: 0.5694   MEDAE: 0.2819   R2: 0.9453   
+[TRAIN] [Epoch:   56]      D_GAN: 0.780124      G_GAN: 0.779956      G_dist: 0.593854      MSE: 0.942937      RMSE: 0.964794      MAE: 0.593854      MEDAE: 0.301734      R2: 0.937055      
+Training time used: 1.520s
+[TEST] [Epoch:  56   Iter:   27]   MSE: 0.8986   RMSE: 0.9479   MAE: 0.5824   MEDAE: 0.3117   R2: 0.9446   
+[TEST] [Epoch:   56]      MSE: 0.979286      RMSE: 0.982002      MAE: 0.606460      MEDAE: 0.318127      R2: 0.935952      
+Testing time used: 1.318s
+[TRAIN] [Epoch:  57   Iter:  107   Load_t: 0.012   Comp_t: 0.003]   D_GAN: 0.7800   G_GAN: 0.7799   G_dist: 0.5933   MSE: 0.6198   RMSE: 0.7873   MAE: 0.4746   MEDAE: 0.2136   R2: 0.9600   
+[TRAIN] [Epoch:   57]      D_GAN: 0.779958      G_GAN: 0.779875      G_dist: 0.593338      MSE: 0.941566      RMSE: 0.964051      MAE: 0.593338      MEDAE: 0.301250      R2: 0.937145      
+Training time used: 1.586s
+[TEST] [Epoch:  57   Iter:   27]   MSE: 0.8971   RMSE: 0.9472   MAE: 0.5818   MEDAE: 0.3114   R2: 0.9447   
+[TEST] [Epoch:   57]      MSE: 0.978344      RMSE: 0.981502      MAE: 0.606036      MEDAE: 0.317655      R2: 0.936013      
+Testing time used: 1.324s
+[TRAIN] [Epoch:  58   Iter:  107   Load_t: 0.014   Comp_t: 0.003]   D_GAN: 0.7799   G_GAN: 0.7799   G_dist: 0.5929   MSE: 0.8679   RMSE: 0.9316   MAE: 0.6067   MEDAE: 0.3720   R2: 0.9368   
+[TRAIN] [Epoch:   58]      D_GAN: 0.779875      G_GAN: 0.779881      G_dist: 0.592930      MSE: 0.940700      RMSE: 0.963566      MAE: 0.592930      MEDAE: 0.300645      R2: 0.937201      
+Training time used: 1.795s
+[TEST] [Epoch:  58   Iter:   27]   MSE: 0.8960   RMSE: 0.9466   MAE: 0.5812   MEDAE: 0.3098   R2: 0.9447   
+[TEST] [Epoch:   58]      MSE: 0.977348      RMSE: 0.980985      MAE: 0.605534      MEDAE: 0.317166      R2: 0.936078      
+Testing time used: 1.337s
+[TRAIN] [Epoch:  59   Iter:  107   Load_t: 0.011   Comp_t: 0.003]   D_GAN: 0.7799   G_GAN: 0.7799   G_dist: 0.5925   MSE: 0.9912   RMSE: 0.9956   MAE: 0.6008   MEDAE: 0.2729   R2: 0.9355   
+[TRAIN] [Epoch:   59]      D_GAN: 0.779881      G_GAN: 0.779886      G_dist: 0.592517      MSE: 0.939930      RMSE: 0.963149      MAE: 0.592517      MEDAE: 0.300365      R2: 0.937251      
+Training time used: 1.533s
+[TEST] [Epoch:  59   Iter:   27]   MSE: 0.8946   RMSE: 0.9458   MAE: 0.5804   MEDAE: 0.3096   R2: 0.9448   
+[TEST] [Epoch:   59]      MSE: 0.976794      RMSE: 0.980691      MAE: 0.605066      MEDAE: 0.317093      R2: 0.936113      
+Testing time used: 1.376s
+[TRAIN] [Epoch:  60   Iter:  107   Load_t: 0.012   Comp_t: 0.003]   D_GAN: 0.7799   G_GAN: 0.7799   G_dist: 0.5921   MSE: 0.7000   RMSE: 0.8367   MAE: 0.5122   MEDAE: 0.2468   R2: 0.9559   
+Saving the model at the end of epoch 60
+[TRAIN] [Epoch:   60]      D_GAN: 0.779887      G_GAN: 0.779877      G_dist: 0.592072      MSE: 0.939381      RMSE: 0.962846      MAE: 0.592072      MEDAE: 0.300114      R2: 0.937286      
+Training time used: 4.235s
+[TEST] [Epoch:  60   Iter:   27]   MSE: 0.8930   RMSE: 0.9450   MAE: 0.5800   MEDAE: 0.3096   R2: 0.9449   
+[TEST] [Epoch:   60]      MSE: 0.976270      RMSE: 0.980408      MAE: 0.604952      MEDAE: 0.317059      R2: 0.936147      
+Testing time used: 1.311s
+[TRAIN] [Epoch:  61   Iter:  107   Load_t: 0.012   Comp_t: 0.003]   D_GAN: 0.7799   G_GAN: 0.7799   G_dist: 0.5919   MSE: 0.8666   RMSE: 0.9309   MAE: 0.5659   MEDAE: 0.2709   R2: 0.9426   
+[TRAIN] [Epoch:   61]      D_GAN: 0.779877      G_GAN: 0.779871      G_dist: 0.591883      MSE: 0.938909      RMSE: 0.962588      MAE: 0.591883      MEDAE: 0.299998      R2: 0.937318      
+Training time used: 1.563s
+[TEST] [Epoch:  61   Iter:   27]   MSE: 0.8914   RMSE: 0.9442   MAE: 0.5797   MEDAE: 0.3110   R2: 0.9450   
+[TEST] [Epoch:   61]      MSE: 0.975655      RMSE: 0.980090      MAE: 0.604745      MEDAE: 0.316759      R2: 0.936187      
+Testing time used: 1.321s
+[TRAIN] [Epoch:  62   Iter:  107   Load_t: 0.011   Comp_t: 0.003]   D_GAN: 0.7799   G_GAN: 0.7799   G_dist: 0.5917   MSE: 0.8800   RMSE: 0.9381   MAE: 0.5631   MEDAE: 0.2645   R2: 0.9441   
+[TRAIN] [Epoch:   62]      D_GAN: 0.779871      G_GAN: 0.779871      G_dist: 0.591723      MSE: 0.938316      RMSE: 0.962264      MAE: 0.591723      MEDAE: 0.299903      R2: 0.937356      
+Training time used: 1.523s
+[TEST] [Epoch:  62   Iter:   27]   MSE: 0.8922   RMSE: 0.9446   MAE: 0.5800   MEDAE: 0.3102   R2: 0.9450   
+[TEST] [Epoch:   62]      MSE: 0.975503      RMSE: 0.980000      MAE: 0.604787      MEDAE: 0.316709      R2: 0.936197      
+Testing time used: 1.348s
+[TRAIN] [Epoch:  63   Iter:  107   Load_t: 0.012   Comp_t: 0.003]   D_GAN: 0.7799   G_GAN: 0.7799   G_dist: 0.5917   MSE: 0.6761   RMSE: 0.8222   MAE: 0.5133   MEDAE: 0.2535   R2: 0.9552   
+[TRAIN] [Epoch:   63]      D_GAN: 0.779871      G_GAN: 0.779871      G_dist: 0.591742      MSE: 0.938125      RMSE: 0.962159      MAE: 0.591742      MEDAE: 0.299856      R2: 0.937368      
+Training time used: 1.599s
+[TEST] [Epoch:  63   Iter:   27]   MSE: 0.8930   RMSE: 0.9450   MAE: 0.5804   MEDAE: 0.3101   R2: 0.9449   
+[TEST] [Epoch:   63]      MSE: 0.975183      RMSE: 0.979832      MAE: 0.604619      MEDAE: 0.316517      R2: 0.936217      
+Testing time used: 1.359s
+[TRAIN] [Epoch:  64   Iter:  107   Load_t: 0.014   Comp_t: 0.003]   D_GAN: 0.7799   G_GAN: 0.7799   G_dist: 0.5915   MSE: 0.8094   RMSE: 0.8997   MAE: 0.5760   MEDAE: 0.3393   R2: 0.9471   
+[TRAIN] [Epoch:   64]      D_GAN: 0.779871      G_GAN: 0.779870      G_dist: 0.591516      MSE: 0.937736      RMSE: 0.961949      MAE: 0.591516      MEDAE: 0.299927      R2: 0.937394      
+Training time used: 1.809s
+[TEST] [Epoch:  64   Iter:   27]   MSE: 0.8921   RMSE: 0.9445   MAE: 0.5799   MEDAE: 0.3087   R2: 0.9450   
+[TEST] [Epoch:   64]      MSE: 0.975093      RMSE: 0.979784      MAE: 0.604445      MEDAE: 0.316378      R2: 0.936223      
+Testing time used: 1.381s
+[TRAIN] [Epoch:  65   Iter:  107   Load_t: 0.012   Comp_t: 0.003]   D_GAN: 0.7799   G_GAN: 0.7799   G_dist: 0.5913   MSE: 1.0633   RMSE: 1.0311   MAE: 0.6476   MEDAE: 0.3595   R2: 0.9264   
+Saving the model at the end of epoch 65
+[TRAIN] [Epoch:   65]      D_GAN: 0.779870      G_GAN: 0.779869      G_dist: 0.591350      MSE: 0.937640      RMSE: 0.961892      MAE: 0.591350      MEDAE: 0.299430      R2: 0.937400      
+Training time used: 3.817s
+[TEST] [Epoch:  65   Iter:   27]   MSE: 0.8910   RMSE: 0.9439   MAE: 0.5799   MEDAE: 0.3105   R2: 0.9450   
+[TEST] [Epoch:   65]      MSE: 0.974734      RMSE: 0.979593      MAE: 0.604448      MEDAE: 0.316707      R2: 0.936246      
+Testing time used: 1.319s
+[TRAIN] [Epoch:  66   Iter:  107   Load_t: 0.012   Comp_t: 0.003]   D_GAN: 0.7799   G_GAN: 0.7799   G_dist: 0.5913   MSE: 0.9229   RMSE: 0.9607   MAE: 0.5705   MEDAE: 0.2698   R2: 0.9359   
+[TRAIN] [Epoch:   66]      D_GAN: 0.779870      G_GAN: 0.779869      G_dist: 0.591333      MSE: 0.937311      RMSE: 0.961710      MAE: 0.591333      MEDAE: 0.299588      R2: 0.937421      
+Training time used: 1.570s
+[TEST] [Epoch:  66   Iter:   27]   MSE: 0.8912   RMSE: 0.9440   MAE: 0.5795   MEDAE: 0.3105   R2: 0.9450   
+[TEST] [Epoch:   66]      MSE: 0.975140      RMSE: 0.979790      MAE: 0.604292      MEDAE: 0.316905      R2: 0.936220      
+Testing time used: 1.327s
+[TRAIN] [Epoch:  67   Iter:  107   Load_t: 0.012   Comp_t: 0.003]   D_GAN: 0.7799   G_GAN: 0.7799   G_dist: 0.5912   MSE: 0.7800   RMSE: 0.8832   MAE: 0.5266   MEDAE: 0.2242   R2: 0.9476   
+[TRAIN] [Epoch:   67]      D_GAN: 0.779869      G_GAN: 0.779869      G_dist: 0.591177      MSE: 0.937565      RMSE: 0.961840      MAE: 0.591177      MEDAE: 0.299804      R2: 0.937405      
+Training time used: 1.608s
+[TEST] [Epoch:  67   Iter:   27]   MSE: 0.8912   RMSE: 0.9440   MAE: 0.5798   MEDAE: 0.3102   R2: 0.9450   
+[TEST] [Epoch:   67]      MSE: 0.974912      RMSE: 0.979666      MAE: 0.604258      MEDAE: 0.317027      R2: 0.936235      
+Testing time used: 1.337s
+[TRAIN] [Epoch:  68   Iter:  107   Load_t: 0.012   Comp_t: 0.003]   D_GAN: 0.7799   G_GAN: 0.7799   G_dist: 0.5912   MSE: 1.0257   RMSE: 1.0128   MAE: 0.6318   MEDAE: 0.3302   R2: 0.9317   
+[TRAIN] [Epoch:   68]      D_GAN: 0.779869      G_GAN: 0.779869      G_dist: 0.591154      MSE: 0.937464      RMSE: 0.961777      MAE: 0.591154      MEDAE: 0.299853      R2: 0.937411      
+Training time used: 1.565s
+[TEST] [Epoch:  68   Iter:   27]   MSE: 0.8909   RMSE: 0.9439   MAE: 0.5798   MEDAE: 0.3103   R2: 0.9450   
+[TEST] [Epoch:   68]      MSE: 0.974783      RMSE: 0.979601      MAE: 0.604352      MEDAE: 0.316611      R2: 0.936242      
+Testing time used: 1.335s
+[TRAIN] [Epoch:  69   Iter:  107   Load_t: 0.012   Comp_t: 0.003]   D_GAN: 0.7799   G_GAN: 0.7799   G_dist: 0.5912   MSE: 0.9116   RMSE: 0.9548   MAE: 0.5822   MEDAE: 0.2883   R2: 0.9362   
+[TRAIN] [Epoch:   69]      D_GAN: 0.779869      G_GAN: 0.779868      G_dist: 0.591207      MSE: 0.937261      RMSE: 0.961671      MAE: 0.591207      MEDAE: 0.299728      R2: 0.937424      
+Training time used: 1.555s
+[TEST] [Epoch:  69   Iter:   27]   MSE: 0.8900   RMSE: 0.9434   MAE: 0.5796   MEDAE: 0.3104   R2: 0.9451   
+[TEST] [Epoch:   69]      MSE: 0.974769      RMSE: 0.979593      MAE: 0.604408      MEDAE: 0.316556      R2: 0.936243      
+Testing time used: 1.288s
+[TRAIN] [Epoch:  70   Iter:  107   Load_t: 0.012   Comp_t: 0.003]   D_GAN: 0.7799   G_GAN: 0.7799   G_dist: 0.5913   MSE: 0.9553   RMSE: 0.9774   MAE: 0.6075   MEDAE: 0.3207   R2: 0.9343   
+Saving the model at the end of epoch 70
+[TRAIN] [Epoch:   70]      D_GAN: 0.779868      G_GAN: 0.779868      G_dist: 0.591251      MSE: 0.937234      RMSE: 0.961652      MAE: 0.591251      MEDAE: 0.299349      R2: 0.937426      
+Training time used: 4.135s
+[TEST] [Epoch:  70   Iter:   27]   MSE: 0.8903   RMSE: 0.9436   MAE: 0.5793   MEDAE: 0.3093   R2: 0.9451   
+[TEST] [Epoch:   70]      MSE: 0.974985      RMSE: 0.979698      MAE: 0.604270      MEDAE: 0.316407      R2: 0.936229      
+Testing time used: 1.284s
+[TRAIN] [Epoch:  71   Iter:  107   Load_t: 0.012   Comp_t: 0.003]   D_GAN: 0.7799   G_GAN: 0.7799   G_dist: 0.5910   MSE: 0.8648   RMSE: 0.9299   MAE: 0.6055   MEDAE: 0.3714   R2: 0.9370   
+[TRAIN] [Epoch:   71]      D_GAN: 0.779868      G_GAN: 0.779868      G_dist: 0.591042      MSE: 0.937293      RMSE: 0.961683      MAE: 0.591042      MEDAE: 0.299220      R2: 0.937422      
+Training time used: 1.560s
+[TEST] [Epoch:  71   Iter:   27]   MSE: 0.8911   RMSE: 0.9440   MAE: 0.5795   MEDAE: 0.3103   R2: 0.9450   
+[TEST] [Epoch:   71]      MSE: 0.974886      RMSE: 0.979642      MAE: 0.604076      MEDAE: 0.316450      R2: 0.936235      
+Testing time used: 1.342s
+[TRAIN] [Epoch:  72   Iter:  107   Load_t: 0.012   Comp_t: 0.003]   D_GAN: 0.7799   G_GAN: 0.7799   G_dist: 0.5909   MSE: 1.1963   RMSE: 1.0937   MAE: 0.6948   MEDAE: 0.4372   R2: 0.9198   
+[TRAIN] [Epoch:   72]      D_GAN: 0.779868      G_GAN: 0.779867      G_dist: 0.590872      MSE: 0.937298      RMSE: 0.961682      MAE: 0.590872      MEDAE: 0.299411      R2: 0.937421      
+Training time used: 1.551s
+[TEST] [Epoch:  72   Iter:   27]   MSE: 0.8920   RMSE: 0.9445   MAE: 0.5801   MEDAE: 0.3087   R2: 0.9450   
+[TEST] [Epoch:   72]      MSE: 0.975422      RMSE: 0.979903      MAE: 0.604395      MEDAE: 0.316435      R2: 0.936200      
+Testing time used: 1.350s
+[TRAIN] [Epoch:  73   Iter:  107   Load_t: 0.011   Comp_t: 0.003]   D_GAN: 0.7799   G_GAN: 0.7799   G_dist: 0.5911   MSE: 0.8430   RMSE: 0.9182   MAE: 0.5731   MEDAE: 0.2891   R2: 0.9444   
+[TRAIN] [Epoch:   73]      D_GAN: 0.779868      G_GAN: 0.779867      G_dist: 0.591141      MSE: 0.937708      RMSE: 0.961899      MAE: 0.591141      MEDAE: 0.299353      R2: 0.937394      
+Training time used: 1.536s
+[TEST] [Epoch:  73   Iter:   27]   MSE: 0.8912   RMSE: 0.9440   MAE: 0.5797   MEDAE: 0.3105   R2: 0.9450   
+[TEST] [Epoch:   73]      MSE: 0.974891      RMSE: 0.979623      MAE: 0.604184      MEDAE: 0.316428      R2: 0.936235      
+Testing time used: 1.348s
+[TRAIN] [Epoch:  74   Iter:  107   Load_t: 0.011   Comp_t: 0.003]   D_GAN: 0.7799   G_GAN: 0.7799   G_dist: 0.5911   MSE: 0.6225   RMSE: 0.7890   MAE: 0.4801   MEDAE: 0.2125   R2: 0.9606   
+[TRAIN] [Epoch:   74]      D_GAN: 0.779867      G_GAN: 0.779867      G_dist: 0.591062      MSE: 0.937368      RMSE: 0.961715      MAE: 0.591062      MEDAE: 0.299432      R2: 0.937416      
+Training time used: 1.529s
+[TEST] [Epoch:  74   Iter:   27]   MSE: 0.8906   RMSE: 0.9437   MAE: 0.5797   MEDAE: 0.3111   R2: 0.9451   
+[TEST] [Epoch:   74]      MSE: 0.974956      RMSE: 0.979662      MAE: 0.604299      MEDAE: 0.316419      R2: 0.936230      
+Testing time used: 1.331s
+[TRAIN] [Epoch:  75   Iter:  107   Load_t: 0.011   Comp_t: 0.003]   D_GAN: 0.7799   G_GAN: 0.7799   G_dist: 0.5911   MSE: 0.8920   RMSE: 0.9445   MAE: 0.5437   MEDAE: 0.2308   R2: 0.9413   
+Saving the model at the end of epoch 75
+[TRAIN] [Epoch:   75]      D_GAN: 0.779867      G_GAN: 0.779866      G_dist: 0.591144      MSE: 0.937454      RMSE: 0.961760      MAE: 0.591144      MEDAE: 0.299448      R2: 0.937411      
+Training time used: 4.278s
+[TEST] [Epoch:  75   Iter:   27]   MSE: 0.8897   RMSE: 0.9433   MAE: 0.5793   MEDAE: 0.3099   R2: 0.9451   
+[TEST] [Epoch:   75]      MSE: 0.975312      RMSE: 0.979847      MAE: 0.604178      MEDAE: 0.316103      R2: 0.936206      
+Testing time used: 1.305s
+[TRAIN] [Epoch:  76   Iter:  107   Load_t: 0.011   Comp_t: 0.003]   D_GAN: 0.7799   G_GAN: 0.7799   G_dist: 0.5910   MSE: 1.1114   RMSE: 1.0543   MAE: 0.6310   MEDAE: 0.3114   R2: 0.9282   
+[TRAIN] [Epoch:   76]      D_GAN: 0.779867      G_GAN: 0.779866      G_dist: 0.590971      MSE: 0.937641      RMSE: 0.961855      MAE: 0.590971      MEDAE: 0.299363      R2: 0.937398      
+Training time used: 1.525s
+[TEST] [Epoch:  76   Iter:   27]   MSE: 0.8902   RMSE: 0.9435   MAE: 0.5795   MEDAE: 0.3100   R2: 0.9451   
+[TEST] [Epoch:   76]      MSE: 0.975269      RMSE: 0.979840      MAE: 0.604247      MEDAE: 0.316039      R2: 0.936209      
+Testing time used: 1.323s
+[TRAIN] [Epoch:  77   Iter:  107   Load_t: 0.011   Comp_t: 0.003]   D_GAN: 0.7799   G_GAN: 0.7799   G_dist: 0.5911   MSE: 1.0571   RMSE: 1.0281   MAE: 0.6494   MEDAE: 0.3568   R2: 0.9254   
+[TRAIN] [Epoch:   77]      D_GAN: 0.779866      G_GAN: 0.779866      G_dist: 0.591062      MSE: 0.937794      RMSE: 0.961939      MAE: 0.591062      MEDAE: 0.299066      R2: 0.937388      
+Training time used: 1.522s
+[TEST] [Epoch:  77   Iter:   27]   MSE: 0.8895   RMSE: 0.9431   MAE: 0.5797   MEDAE: 0.3100   R2: 0.9451   
+[TEST] [Epoch:   77]      MSE: 0.974978      RMSE: 0.979685      MAE: 0.604259      MEDAE: 0.316377      R2: 0.936228      
+Testing time used: 1.350s
+[TRAIN] [Epoch:  78   Iter:  107   Load_t: 0.014   Comp_t: 0.003]   D_GAN: 0.7799   G_GAN: 0.7799   G_dist: 0.5912   MSE: 1.3719   RMSE: 1.1713   MAE: 0.7167   MEDAE: 0.3887   R2: 0.9080   
+[TRAIN] [Epoch:   78]      D_GAN: 0.779866      G_GAN: 0.779866      G_dist: 0.591157      MSE: 0.937575      RMSE: 0.961821      MAE: 0.591157      MEDAE: 0.299380      R2: 0.937403      
+Training time used: 1.760s
+[TEST] [Epoch:  78   Iter:   27]   MSE: 0.8903   RMSE: 0.9435   MAE: 0.5796   MEDAE: 0.3105   R2: 0.9451   
+[TEST] [Epoch:   78]      MSE: 0.974867      RMSE: 0.979618      MAE: 0.604020      MEDAE: 0.316390      R2: 0.936236      
+Testing time used: 1.344s
+[TRAIN] [Epoch:  79   Iter:  107   Load_t: 0.012   Comp_t: 0.003]   D_GAN: 0.7799   G_GAN: 0.7799   G_dist: 0.5909   MSE: 0.7272   RMSE: 0.8527   MAE: 0.5299   MEDAE: 0.2742   R2: 0.9524   
+[TRAIN] [Epoch:   79]      D_GAN: 0.779866      G_GAN: 0.779865      G_dist: 0.590918      MSE: 0.937443      RMSE: 0.961756      MAE: 0.590918      MEDAE: 0.299724      R2: 0.937411      
+Training time used: 1.583s
+[TEST] [Epoch:  79   Iter:   27]   MSE: 0.8905   RMSE: 0.9437   MAE: 0.5795   MEDAE: 0.3107   R2: 0.9451   
+[TEST] [Epoch:   79]      MSE: 0.975037      RMSE: 0.979711      MAE: 0.603899      MEDAE: 0.316583      R2: 0.936224      
+Testing time used: 1.337s
+[TRAIN] [Epoch:  80   Iter:  107   Load_t: 0.012   Comp_t: 0.003]   D_GAN: 0.7799   G_GAN: 0.7799   G_dist: 0.5909   MSE: 1.1043   RMSE: 1.0509   MAE: 0.6245   MEDAE: 0.2961   R2: 0.9260   
+Saving the model at the end of epoch 80
+[TRAIN] [Epoch:   80]      D_GAN: 0.779866      G_GAN: 0.779865      G_dist: 0.590853      MSE: 0.937715      RMSE: 0.961896      MAE: 0.590853      MEDAE: 0.299825      R2: 0.937393      
+Training time used: 4.356s
+[TEST] [Epoch:  80   Iter:   27]   MSE: 0.8900   RMSE: 0.9434   MAE: 0.5795   MEDAE: 0.3105   R2: 0.9451   
+[TEST] [Epoch:   80]      MSE: 0.975318      RMSE: 0.979850      MAE: 0.604046      MEDAE: 0.316905      R2: 0.936206      
+Testing time used: 1.320s
+[TRAIN] [Epoch:  81   Iter:  107   Load_t: 0.011   Comp_t: 0.003]   D_GAN: 0.7799   G_GAN: 0.7799   G_dist: 0.5909   MSE: 0.9126   RMSE: 0.9553   MAE: 0.5821   MEDAE: 0.2908   R2: 0.9361   
+[TRAIN] [Epoch:   81]      D_GAN: 0.779865      G_GAN: 0.779865      G_dist: 0.590910      MSE: 0.937877      RMSE: 0.961980      MAE: 0.590910      MEDAE: 0.299937      R2: 0.937382      
+Training time used: 1.548s
+[TEST] [Epoch:  81   Iter:   27]   MSE: 0.8894   RMSE: 0.9431   MAE: 0.5794   MEDAE: 0.3117   R2: 0.9451   
+[TEST] [Epoch:   81]      MSE: 0.975110      RMSE: 0.979747      MAE: 0.604122      MEDAE: 0.317086      R2: 0.936218      
+Testing time used: 1.317s
+[TRAIN] [Epoch:  82   Iter:  107   Load_t: 0.012   Comp_t: 0.003]   D_GAN: 0.7799   G_GAN: 0.7799   G_dist: 0.5910   MSE: 0.9677   RMSE: 0.9837   MAE: 0.5924   MEDAE: 0.2809   R2: 0.9366   
+[TRAIN] [Epoch:   82]      D_GAN: 0.779865      G_GAN: 0.779865      G_dist: 0.591037      MSE: 0.937718      RMSE: 0.961890      MAE: 0.591037      MEDAE: 0.300135      R2: 0.937392      
+Training time used: 1.571s
+[TEST] [Epoch:  82   Iter:   27]   MSE: 0.8895   RMSE: 0.9431   MAE: 0.5792   MEDAE: 0.3116   R2: 0.9451   
+[TEST] [Epoch:   82]      MSE: 0.975161      RMSE: 0.979770      MAE: 0.603907      MEDAE: 0.317020      R2: 0.936215      
+Testing time used: 1.331s
+[TRAIN] [Epoch:  83   Iter:  107   Load_t: 0.011   Comp_t: 0.003]   D_GAN: 0.7799   G_GAN: 0.7799   G_dist: 0.5908   MSE: 1.3510   RMSE: 1.1623   MAE: 0.6835   MEDAE: 0.3078   R2: 0.9131   
+[TRAIN] [Epoch:   83]      D_GAN: 0.779865      G_GAN: 0.779864      G_dist: 0.590765      MSE: 0.937664      RMSE: 0.961858      MAE: 0.590765      MEDAE: 0.300034      R2: 0.937396      
+Training time used: 1.530s
+[TEST] [Epoch:  83   Iter:   27]   MSE: 0.8895   RMSE: 0.9432   MAE: 0.5794   MEDAE: 0.3104   R2: 0.9451   
+[TEST] [Epoch:   83]      MSE: 0.975331      RMSE: 0.979847      MAE: 0.603989      MEDAE: 0.316943      R2: 0.936204      
+Testing time used: 1.317s
+[TRAIN] [Epoch:  84   Iter:  107   Load_t: 0.012   Comp_t: 0.003]   D_GAN: 0.7799   G_GAN: 0.7799   G_dist: 0.5908   MSE: 0.8751   RMSE: 0.9355   MAE: 0.5781   MEDAE: 0.3116   R2: 0.9389   
+[TRAIN] [Epoch:   84]      D_GAN: 0.779865      G_GAN: 0.779864      G_dist: 0.590831      MSE: 0.937710      RMSE: 0.961881      MAE: 0.590831      MEDAE: 0.299893      R2: 0.937393      
+Training time used: 1.568s
+[TEST] [Epoch:  84   Iter:   27]   MSE: 0.8892   RMSE: 0.9430   MAE: 0.5790   MEDAE: 0.3099   R2: 0.9451   
+[TEST] [Epoch:   84]      MSE: 0.975886      RMSE: 0.980131      MAE: 0.604069      MEDAE: 0.316675      R2: 0.936167      
+Testing time used: 1.311s
+[TRAIN] [Epoch:  85   Iter:  107   Load_t: 0.012   Comp_t: 0.003]   D_GAN: 0.7799   G_GAN: 0.7799   G_dist: 0.5909   MSE: 0.8723   RMSE: 0.9340   MAE: 0.5699   MEDAE: 0.2691   R2: 0.9415   
+Saving the model at the end of epoch 85
+[TRAIN] [Epoch:   85]      D_GAN: 0.779864      G_GAN: 0.779864      G_dist: 0.590936      MSE: 0.938232      RMSE: 0.962159      MAE: 0.590936      MEDAE: 0.299449      R2: 0.937358      
+Training time used: 4.453s
+[TEST] [Epoch:  85   Iter:   27]   MSE: 0.8893   RMSE: 0.9430   MAE: 0.5791   MEDAE: 0.3102   R2: 0.9451   
+[TEST] [Epoch:   85]      MSE: 0.975927      RMSE: 0.980152      MAE: 0.604086      MEDAE: 0.315898      R2: 0.936165      
+Testing time used: 1.316s
+[TRAIN] [Epoch:  86   Iter:  107   Load_t: 0.012   Comp_t: 0.003]   D_GAN: 0.7799   G_GAN: 0.7799   G_dist: 0.5910   MSE: 0.9858   RMSE: 0.9929   MAE: 0.5993   MEDAE: 0.2710   R2: 0.9359   
+[TRAIN] [Epoch:   86]      D_GAN: 0.779864      G_GAN: 0.779864      G_dist: 0.590975      MSE: 0.938325      RMSE: 0.962203      MAE: 0.590975      MEDAE: 0.299453      R2: 0.937352      
+Training time used: 1.556s
+[TEST] [Epoch:  86   Iter:   27]   MSE: 0.8894   RMSE: 0.9431   MAE: 0.5792   MEDAE: 0.3110   R2: 0.9451   
+[TEST] [Epoch:   86]      MSE: 0.975514      RMSE: 0.979941      MAE: 0.603982      MEDAE: 0.316498      R2: 0.936192      
+Testing time used: 1.302s
+[TRAIN] [Epoch:  87   Iter:  107   Load_t: 0.012   Comp_t: 0.003]   D_GAN: 0.7799   G_GAN: 0.7799   G_dist: 0.5909   MSE: 0.7976   RMSE: 0.8931   MAE: 0.5376   MEDAE: 0.2420   R2: 0.9467   
+[TRAIN] [Epoch:   87]      D_GAN: 0.779864      G_GAN: 0.779864      G_dist: 0.590874      MSE: 0.937971      RMSE: 0.962017      MAE: 0.590874      MEDAE: 0.299497      R2: 0.937376      
+Training time used: 1.597s
+[TEST] [Epoch:  87   Iter:   27]   MSE: 0.8900   RMSE: 0.9434   MAE: 0.5794   MEDAE: 0.3112   R2: 0.9451   
+[TEST] [Epoch:   87]      MSE: 0.975600      RMSE: 0.979986      MAE: 0.603813      MEDAE: 0.316535      R2: 0.936187      
+Testing time used: 1.340s
+[TRAIN] [Epoch:  88   Iter:  107   Load_t: 0.012   Comp_t: 0.003]   D_GAN: 0.7799   G_GAN: 0.7799   G_dist: 0.5907   MSE: 0.6233   RMSE: 0.7895   MAE: 0.4773   MEDAE: 0.2110   R2: 0.9598   
+[TRAIN] [Epoch:   88]      D_GAN: 0.779864      G_GAN: 0.779865      G_dist: 0.590697      MSE: 0.938011      RMSE: 0.962042      MAE: 0.590697      MEDAE: 0.299494      R2: 0.937373      
+Training time used: 1.596s
+[TEST] [Epoch:  88   Iter:   27]   MSE: 0.8899   RMSE: 0.9434   MAE: 0.5794   MEDAE: 0.3105   R2: 0.9451   
+[TEST] [Epoch:   88]      MSE: 0.976109      RMSE: 0.980236      MAE: 0.604014      MEDAE: 0.316612      R2: 0.936153      
+Testing time used: 1.344s
+[TRAIN] [Epoch:  89   Iter:  107   Load_t: 0.012   Comp_t: 0.003]   D_GAN: 0.7799   G_GAN: 0.7799   G_dist: 0.5908   MSE: 0.8198   RMSE: 0.9054   MAE: 0.5148   MEDAE: 0.2131   R2: 0.9457   
+[TRAIN] [Epoch:   89]      D_GAN: 0.779865      G_GAN: 0.779866      G_dist: 0.590781      MSE: 0.938264      RMSE: 0.962173      MAE: 0.590781      MEDAE: 0.299677      R2: 0.937357      
+Training time used: 1.577s
+[TEST] [Epoch:  89   Iter:   27]   MSE: 0.8890   RMSE: 0.9429   MAE: 0.5790   MEDAE: 0.3098   R2: 0.9451   
+[TEST] [Epoch:   89]      MSE: 0.976063      RMSE: 0.980206      MAE: 0.603854      MEDAE: 0.316486      R2: 0.936155      
+Testing time used: 1.333s
+[TRAIN] [Epoch:  90   Iter:  107   Load_t: 0.012   Comp_t: 0.003]   D_GAN: 0.7799   G_GAN: 0.7799   G_dist: 0.5907   MSE: 0.9952   RMSE: 0.9976   MAE: 0.5779   MEDAE: 0.2508   R2: 0.9370   
+Saving the model at the end of epoch 90
+[TRAIN] [Epoch:   90]      D_GAN: 0.779866      G_GAN: 0.779869      G_dist: 0.590690      MSE: 0.938366      RMSE: 0.962225      MAE: 0.590690      MEDAE: 0.299523      R2: 0.937349      
+Training time used: 3.929s
+[TEST] [Epoch:  90   Iter:   27]   MSE: 0.8885   RMSE: 0.9426   MAE: 0.5788   MEDAE: 0.3103   R2: 0.9452   
+[TEST] [Epoch:   90]      MSE: 0.975984      RMSE: 0.980160      MAE: 0.603855      MEDAE: 0.316460      R2: 0.936161      
+Testing time used: 1.310s
+[TRAIN] [Epoch:  91   Iter:  107   Load_t: 0.012   Comp_t: 0.003]   D_GAN: 0.7799   G_GAN: 0.7799   G_dist: 0.5908   MSE: 1.0676   RMSE: 1.0333   MAE: 0.6081   MEDAE: 0.2731   R2: 0.9268   
+[TRAIN] [Epoch:   91]      D_GAN: 0.779870      G_GAN: 0.779877      G_dist: 0.590759      MSE: 0.938369      RMSE: 0.962228      MAE: 0.590759      MEDAE: 0.299535      R2: 0.937349      
+Training time used: 1.562s
+[TEST] [Epoch:  91   Iter:   27]   MSE: 0.8883   RMSE: 0.9425   MAE: 0.5790   MEDAE: 0.3097   R2: 0.9452   
+[TEST] [Epoch:   91]      MSE: 0.975704      RMSE: 0.980024      MAE: 0.603896      MEDAE: 0.316530      R2: 0.936179      
+Testing time used: 1.319s
+[TRAIN] [Epoch:  92   Iter:  107   Load_t: 0.011   Comp_t: 0.003]   D_GAN: 0.7799   G_GAN: 0.7799   G_dist: 0.5908   MSE: 0.7024   RMSE: 0.8381   MAE: 0.5111   MEDAE: 0.2471   R2: 0.9557   
+[TRAIN] [Epoch:   92]      D_GAN: 0.779877      G_GAN: 0.779892      G_dist: 0.590766      MSE: 0.938100      RMSE: 0.962091      MAE: 0.590766      MEDAE: 0.299915      R2: 0.937367      
+Training time used: 1.525s
+[TEST] [Epoch:  92   Iter:   27]   MSE: 0.8898   RMSE: 0.9433   MAE: 0.5797   MEDAE: 0.3096   R2: 0.9451   
+[TEST] [Epoch:   92]      MSE: 0.975570      RMSE: 0.979966      MAE: 0.604115      MEDAE: 0.316759      R2: 0.936188      
+Testing time used: 1.331s
+[TRAIN] [Epoch:  93   Iter:  107   Load_t: 0.011   Comp_t: 0.003]   D_GAN: 0.7799   G_GAN: 0.7799   G_dist: 0.5910   MSE: 0.6209   RMSE: 0.7879   MAE: 0.4695   MEDAE: 0.1931   R2: 0.9597   
+[TRAIN] [Epoch:   93]      D_GAN: 0.779891      G_GAN: 0.779923      G_dist: 0.590984      MSE: 0.938010      RMSE: 0.962047      MAE: 0.590984      MEDAE: 0.299830      R2: 0.937373      
+Training time used: 1.546s
+[TEST] [Epoch:  93   Iter:   27]   MSE: 0.8899   RMSE: 0.9433   MAE: 0.5795   MEDAE: 0.3117   R2: 0.9451   
+[TEST] [Epoch:   93]      MSE: 0.975930      RMSE: 0.980141      MAE: 0.603957      MEDAE: 0.316478      R2: 0.936164      
+Testing time used: 1.331s
+[TRAIN] [Epoch:  94   Iter:  107   Load_t: 0.011   Comp_t: 0.003]   D_GAN: 0.7799   G_GAN: 0.7800   G_dist: 0.5908   MSE: 1.1998   RMSE: 1.0954   MAE: 0.6949   MEDAE: 0.4388   R2: 0.9195   
+[TRAIN] [Epoch:   94]      D_GAN: 0.779923      G_GAN: 0.779978      G_dist: 0.590788      MSE: 0.938216      RMSE: 0.962154      MAE: 0.590788      MEDAE: 0.299590      R2: 0.937360      
+Training time used: 1.541s
+[TEST] [Epoch:  94   Iter:   27]   MSE: 0.8888   RMSE: 0.9428   MAE: 0.5788   MEDAE: 0.3099   R2: 0.9452   
+[TEST] [Epoch:   94]      MSE: 0.976250      RMSE: 0.980302      MAE: 0.603866      MEDAE: 0.316532      R2: 0.936143      
+Testing time used: 1.332s
+[TRAIN] [Epoch:  95   Iter:  107   Load_t: 0.011   Comp_t: 0.003]   D_GAN: 0.7800   G_GAN: 0.7801   G_dist: 0.5906   MSE: 0.8584   RMSE: 0.9265   MAE: 0.5855   MEDAE: 0.2984   R2: 0.9465   
+Saving the model at the end of epoch 95
+[TRAIN] [Epoch:   95]      D_GAN: 0.779978      G_GAN: 0.780095      G_dist: 0.590593      MSE: 0.938324      RMSE: 0.962207      MAE: 0.590593      MEDAE: 0.299177      R2: 0.937353      
+Training time used: 3.897s
+[TEST] [Epoch:  95   Iter:   27]   MSE: 0.8890   RMSE: 0.9428   MAE: 0.5789   MEDAE: 0.3101   R2: 0.9452   
+[TEST] [Epoch:   95]      MSE: 0.976323      RMSE: 0.980346      MAE: 0.603923      MEDAE: 0.316516      R2: 0.936138      
+Testing time used: 1.295s
+[TRAIN] [Epoch:  96   Iter:  107   Load_t: 0.011   Comp_t: 0.003]   D_GAN: 0.7801   G_GAN: 0.7802   G_dist: 0.5907   MSE: 0.9498   RMSE: 0.9746   MAE: 0.5962   MEDAE: 0.2901   R2: 0.9403   
+[TRAIN] [Epoch:   96]      D_GAN: 0.780097      G_GAN: 0.780206      G_dist: 0.590671      MSE: 0.938617      RMSE: 0.962359      MAE: 0.590671      MEDAE: 0.299293      R2: 0.937333      
+Training time used: 1.531s
+[TEST] [Epoch:  96   Iter:   27]   MSE: 0.8893   RMSE: 0.9430   MAE: 0.5790   MEDAE: 0.3102   R2: 0.9451   
+[TEST] [Epoch:   96]      MSE: 0.976619      RMSE: 0.980493      MAE: 0.603982      MEDAE: 0.316458      R2: 0.936119      
+Testing time used: 1.312s
+[TRAIN] [Epoch:  97   Iter:  107   Load_t: 0.012   Comp_t: 0.003]   D_GAN: 0.7802   G_GAN: 0.7803   G_dist: 0.5907   MSE: 0.7304   RMSE: 0.8546   MAE: 0.5301   MEDAE: 0.2748   R2: 0.9522   
+[TRAIN] [Epoch:   97]      D_GAN: 0.780204      G_GAN: 0.780323      G_dist: 0.590718      MSE: 0.938840      RMSE: 0.962475      MAE: 0.590718      MEDAE: 0.299052      R2: 0.937318      
+Training time used: 1.603s
+[TEST] [Epoch:  97   Iter:   27]   MSE: 0.8899   RMSE: 0.9434   MAE: 0.5792   MEDAE: 0.3093   R2: 0.9451   
+[TEST] [Epoch:   97]      MSE: 0.976284      RMSE: 0.980324      MAE: 0.603908      MEDAE: 0.316146      R2: 0.936141      
+Testing time used: 1.307s
+[TRAIN] [Epoch:  98   Iter:  107   Load_t: 0.011   Comp_t: 0.003]   D_GAN: 0.7803   G_GAN: 0.7801   G_dist: 0.5907   MSE: 0.6218   RMSE: 0.7885   MAE: 0.4800   MEDAE: 0.2131   R2: 0.9606   
+[TRAIN] [Epoch:   98]      D_GAN: 0.780324      G_GAN: 0.780111      G_dist: 0.590691      MSE: 0.938668      RMSE: 0.962380      MAE: 0.590691      MEDAE: 0.299015      R2: 0.937329      
+Training time used: 1.521s
+[TEST] [Epoch:  98   Iter:   27]   MSE: 0.8901   RMSE: 0.9435   MAE: 0.5795   MEDAE: 0.3101   R2: 0.9451   
+[TEST] [Epoch:   98]      MSE: 0.976635      RMSE: 0.980498      MAE: 0.604199      MEDAE: 0.315919      R2: 0.936118      
+Testing time used: 1.337s
+[TRAIN] [Epoch:  99   Iter:  107   Load_t: 0.012   Comp_t: 0.003]   D_GAN: 0.7801   G_GAN: 0.7799   G_dist: 0.5910   MSE: 0.6746   RMSE: 0.8214   MAE: 0.4866   MEDAE: 0.2029   R2: 0.9554   
+[TRAIN] [Epoch:   99]      D_GAN: 0.780111      G_GAN: 0.779944      G_dist: 0.590957      MSE: 0.938784      RMSE: 0.962443      MAE: 0.590957      MEDAE: 0.299161      R2: 0.937322      
+Training time used: 1.594s
+[TEST] [Epoch:  99   Iter:   27]   MSE: 0.8893   RMSE: 0.9430   MAE: 0.5793   MEDAE: 0.3092   R2: 0.9451   
+[TEST] [Epoch:   99]      MSE: 0.976688      RMSE: 0.980523      MAE: 0.604032      MEDAE: 0.316252      R2: 0.936114      
+Testing time used: 1.323s
+[TRAIN] [Epoch: 100   Iter:  107   Load_t: 0.012   Comp_t: 0.003]   D_GAN: 0.7799   G_GAN: 0.7799   G_dist: 0.5908   MSE: 0.9141   RMSE: 0.9561   MAE: 0.5923   MEDAE: 0.3027   R2: 0.9362   
+Saving the model at the end of epoch 100
+[TRAIN] [Epoch:  100]      D_GAN: 0.779943      G_GAN: 0.779867      G_dist: 0.590789      MSE: 0.938837      RMSE: 0.962467      MAE: 0.590789      MEDAE: 0.298976      R2: 0.937318      
+Training time used: 3.929s
+[TEST] [Epoch: 100   Iter:   27]   MSE: 0.8895   RMSE: 0.9431   MAE: 0.5791   MEDAE: 0.3088   R2: 0.9451   
+[TEST] [Epoch:  100]      MSE: 0.976643      RMSE: 0.980502      MAE: 0.603817      MEDAE: 0.315910      R2: 0.936117      
+Testing time used: 1.298s
+Full running time: 1329.801s

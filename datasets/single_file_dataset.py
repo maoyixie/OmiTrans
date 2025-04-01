@@ -62,10 +62,12 @@ class SingleFileDataset(BasicDataset):
             B_df_list, self.B_dim = preprocess.separate_B(B_df)
             self.B_tensor_all = []
             for i in range(0, 23):
-                B_array = B_df_list[i].values
+                # B_array = B_df_list[i].values
+                B_array = B_df_list[i]
                 if self.param.add_channel:
                     # Add one dimension for the channel
                     B_array = B_array[np.newaxis, :, :]
+                B_array = B_array.astype(np.float32)  # 显式转换
                 B_tensor_part = torch.Tensor(B_array)
                 self.B_tensor_all.append(B_tensor_part)
         else:
