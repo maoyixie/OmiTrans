@@ -1,4 +1,4 @@
-# OmiTrans
+# OmiTrans(For course CE7412 only)
 ***Please also have a look at our multi-omics multi-task DL freamwork 👀:***
 [OmiEmbed](https://github.com/zhangxiaoyu11/OmiEmbed)
 
