@@ -1,17 +1,17 @@
 import pandas as pd
 
-# 加载 methylation 数据
+# Loading methylation data
 B_df = pd.read_csv('./data/B.tsv', sep='\t', index_col=0)
 
-# 加载注释文件
+# Loading annotation files
 anno = pd.read_csv('./anno/B_anno.csv', sep='\t', index_col=0)
-anno = anno.rename(columns={"chrom": "CHR"})  # 如果你代码中用的是 "CHR"
+anno = anno.rename(columns={"chrom": "CHR"})  # If you use "CHR" in your code
 
-# 检查 probe ID 匹配情况
+# Check probe ID matching
 missing_ids = B_df.index.difference(anno.index)
-print(f"共有 {len(B_df)} 个 probes，其中 {len(missing_ids)} 个在 anno 中找不到。")
+print(f"There are {len(B_df)} probes in total, {len(missing_ids)} are not found in anno.")
 
-# 示例输出缺失的前几个
+# The sample output is missing the first few
 if len(missing_ids) > 0:
-    print("缺失的 probe IDs（前 10 个）:")
+    print("Missing probe IDs(previous 10):")
     print(missing_ids[:10])
