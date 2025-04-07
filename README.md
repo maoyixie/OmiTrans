@@ -31,7 +31,7 @@ cd OmiTrans
     ```bash
     pip install -r requirements.txt
     ```
-
+    
 ### Try it out
 -   Put the gene expression data (A.tsv) and DNA methylation data (B.tsv) in the default data path (./data)
 -   Train and test using the default settings
