@@ -2,6 +2,7 @@
 .idea/
 .DS_Store
 checkpoints/
+checkpoints_train_test/
 __pycache__
 anno*
 data
