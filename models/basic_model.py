@@ -297,8 +297,8 @@ class BasicModel(ABC):
         initialize and return an empty fake array and an empty index array
         """
         fake_dict = OrderedDict()
-        fake_dict['index'] = np.zeros(shape=[0])
-        fake_dict['fake'] = np.zeros(shape=[0, self.param.A_dim])
+        fake_dict['index'] = np.zeros(shape=(0,), dtype=np.int32)
+        fake_dict['fake'] = np.zeros(shape=(0, self.param.A_dim), dtype=np.float32)
         return fake_dict
 
     def update_fake_dict(self, fake_dict):

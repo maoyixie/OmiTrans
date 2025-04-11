@@ -1,8 +1,10 @@
 ### c_gan_model.py
 import torch
 from .basic_model import BasicModel
+from collections import OrderedDict
 from . import networks
 import torch.nn as nn
+import numpy as np
 
 class CGanModel(BasicModel):
     @staticmethod
@@ -43,11 +45,27 @@ class CGanModel(BasicModel):
         pass
 
     def init_fake_dict(self):
-        return {'fake': []}
+        fake_dict = OrderedDict()
+        fake_dict['index'] = np.zeros(shape=(0,), dtype=np.int32)
+        fake_dict['fake'] = np.zeros(shape=(0, self.param.output_chan_num), dtype=np.float32) # ← use output_chan_num
+        print("[DEBUG][init_fake_dict] Initialized with keys:", fake_dict.keys())
+        return fake_dict
 
     def update_fake_dict(self, fake_dict):
-        fake_np = self.fake_A_tensor.detach().cpu().numpy()
-        if self.param.add_channel:
-            fake_np = fake_np[0]
-        fake_dict['fake'].append(fake_np)
-        return fake_dict
+        """
+        update the fake array that stores the predicted omics data
+        fake_dict (OrderedDict)  -- the fake array that stores the predicted omics data and the index array
+        """
+        with torch.no_grad():
+            if self.param.add_channel:
+                current_fake_array = np.squeeze(self.fake_A_tensor.cpu().numpy(), axis=1)
+            else:
+                current_fake_array = self.fake_A_tensor.cpu().numpy()
+
+            current_index_array = self.data_index.cpu().numpy()
+
+            fake_dict['fake'] = np.concatenate((fake_dict['fake'], current_fake_array), axis=0)
+            fake_dict['index'] = np.concatenate((fake_dict['index'], current_index_array), axis=0)
+
+            return fake_dict
+        

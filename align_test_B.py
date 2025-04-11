@@ -2,8 +2,8 @@ import pandas as pd
 
 # Setting the Path
 anno_file = "./anno/B_anno.csv"
-test_b_file = "./data/B.tsv"
-output_file = "./data/B_aligned.tsv"
+test_b_file = "./data_cancer/B.tsv"
+output_file = "./data_cancer/B_aligned.tsv"
 
 # Read the probe sequence for training
 anno_df = pd.read_csv(anno_file, sep=None, engine='python')

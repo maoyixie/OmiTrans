@@ -1334,7 +1334,8 @@ def define_G(input_chan_num, output_chan_num, netG, A_dim, B_dim, gen_filter_num
     elif netG == 'fcg':
         net = FCG(B_dim, A_dim, norm_layer, leaky_slope, dropout_p, latent_dim=latent_dim)
     elif netG == 'fcg_sep':
-        net = FCGSep(B_dim, A_dim, norm_layer, leaky_slope, dropout_p, latent_dim=latent_dim)
+        # net = FCGSep(B_dim, A_dim, norm_layer, leaky_slope, dropout_p, latent_dim=latent_dim)
+        net = FCGSep(B_dim, output_chan_num, norm_layer, leaky_slope, dropout_p, latent_dim=latent_dim)
     elif netG == 'fcg_single':
         net = FCGSingle(B_dim, A_dim)
     elif netG == 'fc_ved':
@@ -1347,6 +1348,8 @@ def define_G(input_chan_num, output_chan_num, netG, A_dim, B_dim, gen_filter_num
         net = TransformerG(B_dim, A_dim, norm_layer, leaky_slope, dropout_p, latent_dim=latent_dim)
     else:
         raise NotImplementedError('Generator model name [%s] is not recognized' % netG)
+
+    print(f"[Debug] Generator netG={netG}, A_dim={A_dim}, output_chan_num={output_chan_num}")
 
     return init_net(net, init_type, init_gain, gpu_ids)
 
