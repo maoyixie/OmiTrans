@@ -1,0 +1,80 @@
+nohup: ignoring input
+
+Welcome to OmiTrans
+by Xiaoyu Zhang x.zhang18@imperial.ac.uk
+
+-----------------------Running Parameters-----------------------
+        batch_size: 256            
+   checkpoints_dir: ./checkpoints  
+       conv_k_size: 9              
+         data_root: ./data         
+      dataset_mode: single_file    
+            detail: False          
+         detect_na: False          
+     deterministic: False          
+    dis_filter_num: 64             
+         dist_loss: L1             
+         dropout_p: 0              
+         end_epoch: 1              
+     epoch_to_load: 100            	[default: latest]
+   experiment_name: test2          	[default: test]
+experiment_to_load: exp_large_batch	[default: test]
+       file_format: tsv            
+    gen_filter_num: 64             
+           gpu_ids: 0              
+         init_gain: 0.02           
+         init_type: normal         
+    input_chan_num: 1              
+            isTest: True           	[default: None]
+           isTrain: False          	[default: None]
+        latent_dim: 256            
+       layer_num_D: 3              
+       leaky_slope: 0.2            
+             model: c_gan          
+              netD: fcd_sep        
+              netG: fcg_sep        
+         norm_type: batch          
+       num_threads: 16             
+   output_chan_num: 1000           	[default: 1]
+        print_freq: 10             
+         save_fake: True           	[default: False]
+              seed: 42             
+    set_pin_memory: False          
+       start_epoch: 1              
+ use_feature_lists: False          
+   use_sample_list: False          
+           zo_norm: False          
+----------------------------------------------------------------
+
+Loading data from ./data/A.tsv
+Loading data from ./data/B.tsv
+Number of probes in B.tsv: 486427
+Number of probes in anno: 485547
+Number of matching probes: 485547
+Separating B.tsv according to the targeting chromosome...
+Dataset [SingleFileDataset] was created
+The size of testing set is 876
+The dimension of omics type A is 60660
+The dimension of omics type B is 
+Initialize network with normal
+Model [CGanModel] was created
+Loading the model from ./checkpoints/exp_large_batch/100_net_G.pth
+/root/anaconda3/envs/omitrans/lib/python3.8/site-packages/torch/cuda/__init__.py:104: UserWarning: 
+NVIDIA RTX A6000 with CUDA capability sm_86 is not compatible with the current PyTorch installation.
+The current PyTorch install supports CUDA capabilities sm_37 sm_50 sm_60 sm_61 sm_70 sm_75 compute_37.
+If you want to use the NVIDIA RTX A6000 GPU with PyTorch, please check the instructions at https://pytorch.org/get-started/locally/
+
+  warnings.warn(incompatible_device_warn.format(device_name, capability, " ".join(arch_list), device_name))
+/root/anaconda3/envs/omitrans/lib/python3.8/site-packages/torch/cuda/__init__.py:104: UserWarning: 
+NVIDIA RTX A5000 with CUDA capability sm_86 is not compatible with the current PyTorch installation.
+The current PyTorch install supports CUDA capabilities sm_37 sm_50 sm_60 sm_61 sm_70 sm_75 compute_37.
+If you want to use the NVIDIA RTX A5000 GPU with PyTorch, please check the instructions at https://pytorch.org/get-started/locally/
+
+  warnings.warn(incompatible_device_warn.format(device_name, capability, " ".join(arch_list), device_name))
+[TEST] [Epoch: 100   Iter:  256]   MSE: 0.1172   RMSE: 0.3423   MAE: 0.1648   MEDAE: 0.0459   R2: 0.9414   
+[TEST] [Epoch: 100   Iter:  512]   MSE: 0.1629   RMSE: 0.4036   MAE: 0.1758   MEDAE: 0.0436   R2: 0.9164   
+[TEST] [Epoch: 100   Iter:  768]   MSE: 0.1300   RMSE: 0.3606   MAE: 0.1597   MEDAE: 0.0442   R2: 0.9347   
+[TEST] [Epoch: 100   Iter:  876]   MSE: 0.1308   RMSE: 0.3617   MAE: 0.1682   MEDAE: 0.0430   R2: 0.9367   
+[TEST] [Epoch:  100]      MSE: 0.192465      RMSE: 0.426169      MAE: 0.193261      MEDAE: 0.047551      R2: 0.903558      
+Testing time used: 97.462s
+Saving generated omics file...
