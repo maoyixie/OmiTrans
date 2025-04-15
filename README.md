@@ -34,6 +34,7 @@ cd OmiTrans
     
 ### Try it out
 -   Put the gene expression data (A.tsv) and DNA methylation data (B.tsv) in the default data path (./data)
+-   Put the anno data (B_anno.csv) in the default anno path (./anno)
 -   Train and test using the default settings
 ```bash
 python train_test.py
@@ -46,3 +47,6 @@ cd checkpoints/test/
 ```bash
 tensorboard --logdir=tb_log --bind_all
 ```
+
+### Datasets link
+https://entuedu-my.sharepoint.com/:f:/g/personal/maoyi001_e_ntu_edu_sg/EkWfrq-EQ1xHubtOllUpyccB-45nLcAJTAmtdp-DAxUajw?e=Htcf33
